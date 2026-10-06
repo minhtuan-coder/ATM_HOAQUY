@@ -4,17 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh Bạ ATM & Ngân Hàng - Khu FPT & VKU Hòa Quý</title>
+    <title>Sinh Viên Đà Nẵng - Academic & Budget Hub</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    colors: {
+                        mint: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#10b981', // Main Mint Emerald
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                        }
+                    },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                     },
@@ -37,15 +51,13 @@
 <body class="bg-slate-900 text-slate-800 font-sans min-h-screen flex items-center justify-center p-0 sm:p-4">
 
     <!-- Mobile App Container Frame -->
-    <div
-        class="w-full sm:max-w-[412px] h-screen sm:h-[844px] bg-slate-50 sm:rounded-[40px] shadow-2xl flex flex-col relative overflow-hidden border-0 sm:border-8 sm:border-slate-800">
+    <div class="w-full sm:max-w-[420px] h-screen sm:h-[860px] bg-emerald-50/30 sm:rounded-[40px] shadow-2xl flex flex-col relative overflow-hidden border-0 sm:border-8 sm:border-slate-800">
 
         <!-- Mobile Status Bar -->
-        <div
-            class="bg-white/80 backdrop-blur-md px-6 py-2.5 flex items-center justify-between text-xs font-semibold text-slate-700 shrink-0 z-40 border-b border-slate-100">
+        <div class="bg-white/90 backdrop-blur-md px-6 py-2.5 flex items-center justify-between text-xs font-semibold text-slate-700 shrink-0 z-40 border-b border-emerald-100/60">
             <span>09:41</span>
             <div class="w-24 h-4 bg-slate-900 rounded-full hidden sm:block"></div>
-            <div class="flex items-center space-x-2">
+            <div class="flex items-center space-x-2 text-emerald-800">
                 <i data-lucide="signal" class="w-3.5 h-3.5"></i>
                 <i data-lucide="wifi" class="w-3.5 h-3.5"></i>
                 <i data-lucide="battery" class="w-3.5 h-3.5"></i>
@@ -53,24 +65,20 @@
         </div>
 
         <!-- App Header -->
-        <header id="appHeader"
-            class="bg-white px-5 py-3.5 border-b border-slate-100 flex items-center justify-between shrink-0 z-30">
+        <header id="appHeader" class="bg-white px-5 py-3.5 border-b border-emerald-100 flex items-center justify-between shrink-0 z-30 shadow-sm">
             <div class="flex items-center space-x-2.5">
-                <div
-                    class="w-9 h-9 bg-blue-600 text-white rounded-xl flex items-center justify-center shadow-md shadow-blue-100">
-                    <i data-lucide="building-2" class="w-5 h-5"></i>
+                <div class="w-9 h-9 bg-gradient-to-tr from-emerald-500 to-teal-400 text-white rounded-xl flex items-center justify-center shadow-md shadow-emerald-200">
+                    <i data-lucide="sparkles" class="w-5 h-5"></i>
                 </div>
                 <div>
-                    <h1 class="text-sm font-bold text-slate-800 leading-tight">ATM & Ngân Hàng Hòa Quý 💳</h1>
-                    <p class="text-[10px] text-slate-500">Tra cứu ATM & PGD quanh ĐH FPT & VKU</p>
+                    <h1 class="text-sm font-extrabold text-slate-800 leading-tight">Sinh Viên Đà Nẵng 🍀</h1>
+                    <p class="text-[10px] font-medium text-emerald-600">Trợ lý toàn năng • Khu FPT & VKU</p>
                 </div>
             </div>
             <div class="flex items-center space-x-1.5">
-                <button onclick="openAddModal()"
-                    class="px-3 py-2 bg-blue-50 text-blue-600 rounded-xl hover:bg-blue-100 transition shadow-sm font-semibold text-xs flex items-center space-x-1"
-                    title="Thêm cây ATM mới">
-                    <i data-lucide="plus" class="w-4 h-4"></i>
-                    <span>Thêm ATM</span>
+                <button onclick="switchTab('glossary')" class="px-2.5 py-1.5 bg-emerald-50 text-emerald-700 rounded-xl hover:bg-emerald-100 transition font-semibold text-[11px] flex items-center space-x-1 border border-emerald-200/50">
+                    <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+                    <span>Thuật Ngữ</span>
                 </button>
             </div>
         </header>
@@ -79,222 +87,139 @@
         <main id="mainContainer" class="flex-1 overflow-y-auto pb-24 no-scrollbar relative">
             <div class="flex items-center justify-center h-full">
                 <div class="text-center space-y-2">
-                    <div
-                        class="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto">
-                    </div>
-                    <p class="text-xs text-slate-500">Đang tải dữ liệu ATM & Phòng Giao Dịch...</p>
+                    <div class="w-8 h-8 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
+                    <p class="text-xs text-slate-500">Đang khởi tạo hệ thống tài liệu & tài chính...</p>
                 </div>
             </div>
         </main>
 
-        <!-- Bottom Navigation Bar -->
-        <nav
-            class="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-slate-200 px-4 py-2 flex items-center justify-around z-40">
-            <button onclick="switchTab('explore')" id="nav-explore"
-                class="flex flex-col items-center space-y-1 text-blue-600 transition">
+        <!-- Bottom Navigation Bar (5 Main Tabs) -->
+        <nav class="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-emerald-100 px-2 py-2 flex items-center justify-around z-40 shadow-lg">
+            <button onclick="switchTab('explore')" id="nav-explore" class="flex flex-col items-center space-y-1 text-emerald-600 transition">
                 <i data-lucide="map-pin" class="w-5 h-5"></i>
-                <span class="text-[10px] font-semibold">Cây ATM / PGD</span>
+                <span class="text-[9px] font-bold">Địa Điểm</span>
             </button>
-            <button onclick="switchTab('map')" id="nav-map"
-                class="flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition">
-                <i data-lucide="shield-check" class="w-5 h-5"></i>
-                <span class="text-[10px] font-medium">Độ Uy Tín</span>
+            <button onclick="switchTab('academic')" id="nav-academic" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition">
+                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                <span class="text-[9px] font-semibold">Học Tập</span>
             </button>
-            <button onclick="switchTab('saved')" id="nav-saved"
-                class="flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition">
-                <i data-lucide="bookmark" class="w-5 h-5"></i>
-                <span class="text-[10px] font-medium">Đã Lưu</span>
+            <button onclick="switchTab('finance')" id="nav-finance" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition">
+                <i data-lucide="wallet" class="w-5 h-5"></i>
+                <span class="text-[9px] font-semibold">Tài Chính</span>
             </button>
-            <button onclick="switchTab('profile')" id="nav-profile"
-                class="flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition">
-                <i data-lucide="info" class="w-5 h-5"></i>
-                <span class="text-[10px] font-medium">Thông Tin</span>
+            <button onclick="switchTab('community')" id="nav-community" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition">
+                <i data-lucide="users" class="w-5 h-5"></i>
+                <span class="text-[9px] font-semibold">Kết Nối</span>
+            </button>
+            <button onclick="switchTab('glossary')" id="nav-glossary" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition">
+                <i data-lucide="book-marked" class="w-5 h-5"></i>
+                <span class="text-[9px] font-semibold">Sổ Tay</span>
             </button>
         </nav>
     </div>
 
-    <!-- Add Modal -->
-    <div id="placeModal"
-        class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div
-            class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden border border-slate-100 max-h-[85vh] flex flex-col">
-            <div class="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
-                <h3 id="modalTitle" class="text-sm font-bold text-slate-800">Đóng góp địa điểm ATM / Ngân hàng mới</h3>
-                <button onclick="closeAddModal()"
-                    class="p-1.5 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-200 transition">
+    <!-- Add Custom Expense Modal -->
+    <div id="expenseModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden border border-emerald-100 flex flex-col">
+            <div class="p-4 border-b border-slate-100 flex items-center justify-between bg-emerald-50/50">
+                <h3 class="text-xs font-bold text-emerald-900 flex items-center space-x-1.5">
+                    <i data-lucide="plus-circle" class="w-4 h-4 text-emerald-600"></i>
+                    <span>Thêm khoản chi tiêu mới</span>
+                </h3>
+                <button onclick="closeExpenseModal()" class="p-1 text-slate-400 hover:text-slate-600 rounded-full">
                     <i data-lucide="x" class="w-4 h-4"></i>
                 </button>
             </div>
-            <form id="placeForm" onsubmit="handleFormSubmit(event)"
-                class="p-5 overflow-y-auto space-y-3.5 flex-1 text-xs">
+            <form onsubmit="handleAddExpense(event)" class="p-4 space-y-3 text-xs">
                 <div>
-                    <label class="block font-semibold text-slate-700 mb-1">Tên cây ATM / Phòng Giao Dịch *</label>
-                    <input type="text" id="placeName" required placeholder="Ví dụ: ATM Agribank - Cây xăng Hòa Quý..."
-                        class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-                <div class="grid grid-cols-2 gap-2.5">
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Tên Ngân hàng *</label>
-                        <select id="placeCategory" required
-                            class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option value="Agribank">Agribank</option>
-                            <option value="Vietcombank">Vietcombank</option>
-                            <option value="BIDV">BIDV</option>
-                            <option value="MB Bank">MB Bank</option>
-                            <option value="TPBank LiveBank">TPBank LiveBank</option>
-                            <option value="Techcombank">Techcombank</option>
-                            <option value="VietinBank">VietinBank</option>
-                            <option value="Co-opBank">Co-opBank</option>
-                            <option value="Ngân hàng khác">Ngân hàng khác</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Loại hình *</label>
-                        <select id="placePriceRange" required
-                            class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option value="Rút tiền mặt 24/7">🏧 Rút tiền mặt 24/7</option>
-                            <option value="Nộp & Rút tiền (CDM/LiveBank)">📥 Nộp & Rút (CDM/LiveBank)</option>
-                            <option value="Phòng Giao Dịch trực tiếp">🏦 Phòng Giao Dịch</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="grid grid-cols-2 gap-2.5">
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Khu vực xung quanh *</label>
-                        <select id="placeUniversity" required
-                            class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option value="ĐH FPT & Khu FPT City">Khu FPT City & ĐH FPT</option>
-                            <option value="ĐH VKU (Việt - Hàn)">Khuôn viên & Cổng VKU</option>
-                            <option value="Trục Nam Kỳ Khởi Nghĩa">Đường Nam Kỳ Khởi Nghĩa</option>
-                            <option value="Trục Trần Đại Nghĩa">Đường Trần Đại Nghĩa</option>
-                            <option value="Khu giáp ranh Điện Ngọc">Khu vực Điện Ngọc (Giáp FPT)</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block font-semibold text-slate-700 mb-1">Đánh giá độ uy tín & an toàn</label>
-                        <select id="placeTrustLevel"
-                            class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option value="Rất cao (5.0 - Có bảo vệ/LiveBank 24/7)">⭐⭐⭐⭐⭐ Rất Cao (An toàn/Có bảo vệ)
-                            </option>
-                            <option value="Cao (4.5 - Đèn sáng, đông dân cư)">⭐⭐⭐⭐ Cao (Sáng đền, đông đúc)</option>
-                            <option value="Trung bình (4.0 - Đường vắng về đêm)">⭐⭐⭐ Khá (Nên đi ban ngày)</option>
-                        </select>
-                    </div>
+                    <label class="block font-semibold text-slate-700 mb-1">Tên khoản chi *</label>
+                    <input type="text" id="expenseTitle" required placeholder="Ví dụ: Tiền mua giáo trình, Ăn đồ nướng..." class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
                 </div>
                 <div>
-                    <label class="block font-semibold text-slate-700 mb-1">Địa chỉ thực tế & Điểm nhận diện *</label>
-                    <input type="text" id="placeAddress" required
-                        placeholder="Ví dụ: Shophouse FPT Plaza 1, Đường Trần Quốc Vượng..."
-                        class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <label class="block font-semibold text-slate-700 mb-1">Số tiền (VNĐ) *</label>
+                    <input type="number" id="expenseAmount" required placeholder="Ví dụ: 150000" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
                 </div>
                 <div>
-                    <label class="block font-semibold text-slate-700 mb-1">Link Ảnh thực tế cây ATM / PGD</label>
-                    <input type="url" id="placeImage" placeholder="https://images.unsplash.com/..."
-                        class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-                <div>
-                    <label class="block font-semibold text-slate-700 mb-1">Đánh giá thực tế & Lưu ý sinh viên</label>
-                    <textarea id="placeReview" rows="2"
-                        placeholder="Ghi chú về camera an ninh, cắm sạc, rút không cần thẻ, tình trạng hết tiền..."
-                        class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"></textarea>
+                    <label class="block font-semibold text-slate-700 mb-1">Phân loại *</label>
+                    <select id="expenseCategory" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                        <option value="Nhà ở">🏠 Tiền nhà / KTX / Điện nước</option>
+                        <option value="Ăn uống">🍜 Ăn uống & Cà phê</option>
+                        <option value="Học tập">📚 Học tập & Tài liệu</option>
+                        <option value="Giải trí">🎮 Giải trí & Mua sắm</option>
+                        <option value="Khác">💡 Khác</option>
+                    </select>
                 </div>
                 <div class="pt-2 flex justify-end space-x-2">
-                    <button type="button" onclick="closeAddModal()"
-                        class="px-3 py-2 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 transition">Hủy</button>
-                    <button type="submit" id="submitBtn"
-                        class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition shadow-md shadow-blue-100">Đăng
-                        Lên Danh Bạ</button>
+                    <button type="button" onclick="closeExpenseModal()" class="px-3 py-2 rounded-xl border border-slate-200 text-slate-600">Hủy</button>
+                    <button type="submit" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md shadow-emerald-100">Thêm Mục Chi</button>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- Detail View Modal -->
-    <div id="detailModal"
-        class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div
-            class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden border border-slate-100 max-h-[88vh] flex flex-col">
+    <div id="detailModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden border border-emerald-100 max-h-[88vh] flex flex-col">
             <div id="detailModalHeader" class="relative h-44 bg-slate-200 bg-cover bg-center">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
-                <button onclick="closeDetailModal()"
-                    class="absolute top-3 right-3 p-1.5 bg-black/50 hover:bg-black/70 text-white rounded-full transition">
+                <button onclick="closeDetailModal()" class="absolute top-3 right-3 p-1.5 bg-black/50 hover:bg-black/70 text-white rounded-full transition">
                     <i data-lucide="x" class="w-4 h-4"></i>
                 </button>
                 <div class="absolute bottom-3 left-3 right-3 text-white">
-                    <span id="detailCategoryBadge"
-                        class="px-2 py-0.5 bg-blue-600 text-[10px] font-bold rounded-md mb-1 inline-block">Ngân
-                        Hàng</span>
+                    <span id="detailCategoryBadge" class="px-2 py-0.5 bg-emerald-600 text-[10px] font-bold rounded-md mb-1 inline-block">Ngân Hàng</span>
                     <h3 id="detailName" class="text-base font-bold leading-snug">Tên Cây ATM</h3>
                 </div>
             </div>
             <div class="p-5 overflow-y-auto space-y-3.5 flex-1 text-xs">
-
-                <!-- Địa chỉ thực tế -->
                 <div class="flex items-start justify-between pb-2.5 border-b border-slate-100">
                     <div class="flex items-start space-x-1.5 text-slate-700 pr-2">
-                        <i data-lucide="map-pin" class="w-4 h-4 text-blue-600 shrink-0 mt-0.5"></i>
-                        <span id="detailAddress" class="font-medium leading-relaxed">Đang cập nhật địa chỉ thực
-                            tế...</span>
+                        <i data-lucide="map-pin" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
+                        <span id="detailAddress" class="font-medium leading-relaxed">Đang cập nhật địa chỉ...</span>
                     </div>
-                    <span id="detailPriceBadge"
-                        class="px-2 py-1 bg-blue-50 text-blue-700 rounded-md font-semibold text-[10px] shrink-0 whitespace-nowrap">Dịch
-                        vụ</span>
+                    <span id="detailPriceBadge" class="px-2 py-1 bg-emerald-50 text-emerald-700 rounded-md font-semibold text-[10px] shrink-0 whitespace-nowrap">Dịch vụ</span>
                 </div>
-
-                <!-- Đánh giá độ uy tín & Khu vực -->
                 <div class="grid grid-cols-2 gap-2.5">
-                    <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 space-y-0.5">
+                    <div class="bg-emerald-50/50 p-2.5 rounded-xl border border-emerald-100/60 space-y-0.5">
                         <p class="text-[10px] font-medium text-slate-400">Độ Uy Tín & An Toàn</p>
                         <p id="detailTrustLevel" class="font-bold text-amber-600">⭐⭐⭐⭐⭐ (5.0/5)</p>
                     </div>
-                    <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100 space-y-0.5">
+                    <div class="bg-emerald-50/50 p-2.5 rounded-xl border border-emerald-100/60 space-y-0.5">
                         <p class="text-[10px] font-medium text-slate-400">Phạm Vi Vị Trí</p>
                         <p id="detailUniversity" class="font-bold text-slate-700 truncate">Khu vực FPT & VKU</p>
                     </div>
                 </div>
-
-                <!-- Mô tả chi tiết & Đánh giá an ninh -->
                 <div>
-                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Mô Tả Thực Tế & Lưu Ý
-                        Sinh Viên</p>
-                    <div id="detailReview"
-                        class="p-3 bg-blue-50/50 rounded-xl text-slate-600 border border-blue-100/60 leading-relaxed italic">
-                        Chưa có đánh giá thực tế.
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Mô Tả Thực Tế & Lưu Ý</p>
+                    <div id="detailReview" class="p-3 bg-emerald-50/60 rounded-xl text-slate-600 border border-emerald-100 leading-relaxed italic">
+                        Chưa có đánh giá.
                     </div>
                 </div>
-
-                <!-- Nút chỉ đường Google Maps -->
                 <div class="pt-1">
-                    <a id="detailGoogleMapLink" href="#" target="_blank"
-                        class="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold flex items-center justify-center space-x-2 transition shadow-md shadow-blue-200">
+                    <a id="detailGoogleMapLink" href="#" target="_blank" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold flex items-center justify-center space-x-2 transition shadow-md shadow-emerald-100">
                         <i data-lucide="navigation-2" class="w-4 h-4"></i>
                         <span>Chỉ đường trên Google Maps</span>
                     </a>
                 </div>
             </div>
-
             <div class="p-3.5 border-t border-slate-100 bg-slate-50 flex justify-between items-center text-xs">
-                <button id="detailSaveBtn" onclick="toggleSaveFromDetail()"
-                    class="px-3.5 py-2 bg-blue-50 text-blue-600 font-semibold rounded-xl hover:bg-blue-100 transition flex items-center space-x-1.5">
+                <button id="detailSaveBtn" onclick="toggleSaveFromDetail()" class="px-3.5 py-2 bg-emerald-50 text-emerald-700 font-semibold rounded-xl hover:bg-emerald-100 transition flex items-center space-x-1.5 border border-emerald-200/50">
                     <i data-lucide="bookmark" class="w-3.5 h-3.5"></i>
-                    <span id="detailSaveText">Lưu ATM</span>
+                    <span id="detailSaveText">Lưu lại</span>
                 </button>
-                <button onclick="closeDetailModal()"
-                    class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium rounded-xl transition">Đóng</button>
+                <button onclick="closeDetailModal()" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium rounded-xl transition">Đóng</button>
             </div>
         </div>
     </div>
 
     <!-- Toast Notification -->
-    <div id="toast"
-        class="fixed top-10 left-1/2 -translate-x-1/2 z-50 transform -translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 text-white px-4 py-2.5 rounded-xl shadow-xl flex items-center space-x-2 text-xs">
+    <div id="toast" class="fixed top-10 left-1/2 -translate-x-1/2 z-50 transform -translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 text-white px-4 py-2.5 rounded-xl shadow-xl flex items-center space-x-2 text-xs">
         <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
         <span id="toastMessage">Cập nhật thành công!</span>
     </div>
 
     <!-- Application JavaScript Logic -->
     <script>
-        // Kho dữ liệu ĐẦY ĐỦ các cây ATM, Phòng Giao Dịch thực tế kèm hình ảnh & mức độ uy tín tại Khu vực ĐH FPT, VKU Hòa Quý & Điện Ngọc
+        // Data Stores
         let places = [
             {
                 id: 'atm_1',
@@ -302,11 +227,11 @@
                 category: 'TPBank LiveBank',
                 priceRange: 'Nộp & Rút tiền (CDM/LiveBank)',
                 university: 'ĐH FPT & Khu FPT City',
-                address: 'Shophouse Plaza FPT City, Đường Trần Quốc Vượng, Hòa Hải (Cách cổng ĐH FPT 400m)',
+                address: 'Shophouse Plaza FPT City, Đường Trần Quốc Vượng, Hòa Hải (Cách ĐH FPT 400m)',
                 trustRating: '5.0/5.0 - Rất Uy Tín (An Toàn Tuyệt Đối)',
-                safetyBadge: '🛡️ Bảo vệ 24/7 • Camera HD • Có điều hòa',
+                safetyBadge: '🛡️ Bảo vệ 24/7 • CCCD gắn chip • Máy lạnh',
                 image: 'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&w=600&q=80',
-                review: 'Điểm rút & nộp tiền đỉnh nhất cho sinh viên FPT. Máy LiveBank thế hệ mới hỗ trợ nộp tiền mặt trực tiếp vào tài khoản 24/7, rút tiền bằng CCCD gắn chip hoặc quét mã QR trên App TPBank mà không cần mang thẻ.',
+                review: 'Hỗ trợ nộp tiền mặt trực tiếp 24/7 vào tài khoản. Rút tiền bằng mã QR trên App TPBank hoặc CCCD cực kỳ tiện cho sinh viên FPT.',
                 saved: false
             },
             {
@@ -317,122 +242,461 @@
                 university: 'Trục Nam Kỳ Khởi Nghĩa',
                 address: 'Cây xăng Petrolimex Hòa Quý, Ngã tư Nam Kỳ Khởi Nghĩa & Trần Đại Nghĩa (Cách VKU 500m)',
                 trustRating: '4.8/5.0 - Cao (Tụ Điểm Đông Đúc)',
-                safetyBadge: '💡 Đèn đường sáng rực • Nhân viên cây xăng trực đêm',
+                safetyBadge: '💡 Đèn sáng rực • Có cây xăng trực đêm',
                 image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80',
-                review: 'Cây ATM dễ tìm và tiện lợi nhất cho sinh viên VKU & FPT di chuyển qua ngã tư lớn. Cây rút tiền hoạt động ổn định, ít khi bị gián đoạn, rút thẻ Agribank chuẩn phí sinh viên.',
+                review: 'Cây ATM đông đúc và an toàn bậc nhất ngã tư Hòa Quý. Phù hợp cho sinh viên VKU & FPT đi đường chính ghé rút tiền.',
                 saved: false
             },
             {
                 id: 'atm_3',
-                name: 'ATM Vietcombank - Trong KTX ĐH VKU',
+                name: 'ATM Vietcombank - KTX ĐH VKU',
                 category: 'Vietcombank',
                 priceRange: 'Rút tiền mặt 24/7',
                 university: 'ĐH VKU (Việt - Hàn)',
-                address: 'Tầng 1 KTX Trường ĐH CNTT & TT Việt - Hàn, Đường Nam Kỳ Khởi Nghĩa',
-                trustRating: '4.9/5.0 - Rất Cao (Trong Khuôn Viên Trường)',
-                safetyBadge: '👮 Bảo vệ KTX túc trực 24/7 • Rất an toàn',
+                address: 'Tầng 1 KTX Trường ĐH CNTT & TT Việt - Hàn, Nam Kỳ Khởi Nghĩa',
+                trustRating: '4.9/5.0 - Rất Cao (Trong Trường)',
+                safetyBadge: '👮 Bảo vệ KTX túc trực 24/7',
                 image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=600&q=80',
-                review: 'Nằm ngay trong khuôn viên KTX VKU nên độ an toàn gần như tuyệt đối. Sinh viên sử dụng thẻ Vietcombank rút tiền cực nhanh mà không phải ra khỏi cổng trường.',
-                saved: false
-            },
-            {
-                id: 'atm_4',
-                name: 'ATM MB Bank - Cổng Trường ĐH VKU',
-                category: 'MB Bank',
-                priceRange: 'Rút tiền mặt 24/7',
-                university: 'ĐH VKU (Việt - Hàn)',
-                address: 'Cổng chính ĐH CNTT & TT Việt - Hàn, Đường Trần Đại Nghĩa, Hòa Quý',
-                trustRating: '4.7/5.0 - Cao (Thuận Tiện Tối Đa)',
-                safetyBadge: '📲 Hỗ trợ rút tiền App MB không dùng thẻ',
-                image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80',
-                review: 'Cây ATM nằm sát bảo vệ cổng VKU. Rất phù hợp cho sinh viên dùng App MB Bank rút tiền bằng mã QR nhanh chóng khi quên ví hoặc quên thẻ.',
-                saved: false
-            },
-            {
-                id: 'atm_5',
-                name: 'Phòng Giao Dịch & ATM Agribank Hòa Quý',
-                category: 'Agribank',
-                priceRange: 'Phòng Giao Dịch trực tiếp',
-                university: 'Trục Trần Đại Nghĩa',
-                address: '356 Trần Đại Nghĩa, Phường Hòa Quý, Ngũ Hành Sơn (Cách VKU 1km)',
-                trustRating: '5.0/5.0 - Uy Tín Tuyệt Đối (PGD Chính Thức)',
-                safetyBadge: '🏦 Trụ sở ngân hàng • Có 2 buồng ATM riêng',
-                image: 'https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=600&q=80',
-                review: 'Phòng giao dịch chính thức của Agribank tại Hòa Quý. Phù hợp cho sinh viên mở tài khoản, cấp lại mật khẩu, chuyển tiền mặt trực tiếp tại quầy hoặc rút tiền ngoài buồng ATM 24/7.',
-                saved: false
-            },
-            {
-                id: 'atm_6',
-                name: 'ATM BIDV - 482 Trần Đại Nghĩa',
-                category: 'BIDV',
-                priceRange: 'Rút tiền mặt 24/7',
-                university: 'Trục Trần Đại Nghĩa',
-                address: '482 Trần Đại Nghĩa, Phường Hòa Quý (Gần nút giao Nam Kỳ Khởi Nghĩa)',
-                trustRating: '4.6/5.0 - Cao (Mặt Đường Chính)',
-                safetyBadge: '📹 Camera giám sát 24/7 • Đèn đường sáng',
-                image: 'https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?auto=format&fit=crop&w=600&q=80',
-                review: 'Buồng ATM BIDV rộng rãi, trang bị máy rút tiền đời mới hoạt động mượt mà, nằm ngay trên trục đường chính thuận tiện ghé qua khi đi học về.',
-                saved: false
-            },
-            {
-                id: 'atm_7',
-                name: 'ATM VietinBank - Khu Đô Thị FPT City',
-                category: 'VietinBank',
-                priceRange: 'Rút tiền mặt 24/7',
-                university: 'ĐH FPT & Khu FPT City',
-                address: 'Trục đường Hoàng Minh Thắng / Shophouse FPT City (Cách ĐH FPT 600m)',
-                trustRating: '4.7/5.0 - Cao (An Ninh FPT City)',
-                safetyBadge: '🚨 Đội bảo vệ FPT City tuần tra thường xuyên',
-                image: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=600&q=80',
-                review: 'Điểm rút tiền an toàn và yên tĩnh nằm ngay trong khu đô thị thông minh FPT City. Máy có giao diện dễ dùng, liên thông tốt với tất cả các thẻ NAPAS.',
-                saved: false
-            },
-            {
-                id: 'atm_8',
-                name: 'ATM Co-opBank - Chợ Hòa Quý',
-                category: 'Co-opBank',
-                priceRange: 'Rút tiền mặt 24/7',
-                university: 'Trục Trần Đại Nghĩa',
-                address: 'Khu vực Chợ Hòa Quý, Đường Mai Đăng Chánh (Cách ĐH FPT ~2km)',
-                trustRating: '4.3/5.0 - Khá (Đông Đúc Ban Ngày)',
-                safetyBadge: '🛒 Ngay trung tâm Chợ Hòa Quý',
-                image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80',
-                review: 'Cây ATM hỗ trợ rút tiền nhanh bằng thẻ NAPAS. Nằm ngay sát khu vực chợ dân sinh Hòa Quý, thích hợp cho sinh viên rút tiền khi đi mua sắm đồ dùng sinh hoạt.',
-                saved: false
-            },
-            {
-                id: 'atm_9',
-                name: 'ATM Techcombank - Điện Ngọc (Giáp FPT)',
-                category: 'Techcombank',
-                priceRange: 'Rút tiền mặt 24/7',
-                university: 'Khu giáp ranh Điện Ngọc',
-                address: 'Đường Trần Hưng Đạo, Phường Điện Ngọc (Từ FPT City đi xuống 1.5km)',
-                trustRating: '4.5/5.0 - Khá Cao (Trục Kinh Doanh)',
-                safetyBadge: '🏪 Cạnh các cửa hàng tiện lợi sáng đèn',
-                image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=600&q=80',
-                review: 'Dành cho sinh viên FPT trọ tại khu vực giáp ranh Quảng Nam - Đà Nẵng (Điện Ngọc). Buồng máy rút tiền hiện đại, ít khi gặp tình trạng nghẽn mạng.',
+                review: 'Nằm gọn trong KTX VKU nên cực kỳ an toàn. Rút thẻ VCB cực nhanh mà không cần ra ngoài cổng trường.',
                 saved: false
             }
         ];
 
+        // Extended Academic Documents Store
+        let academicDocs = [
+            { id: 'doc_1', subject: 'CSI106 / C Programming', title: 'Tổng hợp 50 Bài Tập C & Đề Thi Practical Exam (PE) Kỳ Fall', type: 'Đề Thi PE/FE', size: '4.2 MB', author: 'Thầy Cường FPT' },
+            { id: 'doc_2', subject: 'CSI106 / C Programming', title: 'Full Bộ Slide Giảng Bài & Code Mẫu Pointer, Struct, Dynamic Allocation', type: 'Slide & Code', size: '12.8 MB', author: 'CLB IT FPT' },
+            { id: 'doc_3', subject: 'MAE101 / Calculus 1', title: 'Tóm Tắt Công Thức Đạo Hàm, Tích Phân & Giải Bài Tập Ôn Thi FE', type: 'Tài Liệu Ôn Thi', size: '2.1 MB', author: 'Ban Cố Vấn MAE' },
+            { id: 'doc_4', subject: 'MAE101 / Calculus 1', title: 'Review Chi Tiết Giảng Viên MAE101 & Kinh Nghiệm Qua Môn Không Cần Học Lại', type: 'Review Môn Học', size: '1.0 MB', author: 'K18 FPT Danang' },
+            { id: 'doc_5', subject: 'PRJ301 / Java Web', title: 'Template Dự Án Web JSP/Servlet Chuẩn MVC + Hướng Dẫn Kết Nối SQL Server', type: 'Code Mẫu & Project', size: '15.5 MB', author: 'Dev Club Danang' },
+            { id: 'doc_6', subject: 'CEA201 / Computer Architecture', title: 'Bộ Câu Hỏi Trắc Nghiệm MIPS Assembly & Kiến Trúc Máy Tính Có Đáp Án', type: 'Đề Thi Trắc Nghiệm', size: '3.4 MB', author: 'K19 VKU' },
+            { id: 'doc_7', subject: 'SSG104 / MKT101', title: 'Slide Thuyết Trình Kỹ Năng Mềm Mẫu & Đề Tài Khởi Nghiệp Đạt Điểm A', type: 'Slide & Báo Cáo', size: '8.0 MB', author: 'Student Community' }
+        ];
+
+        let selectedDocSubject = 'Tất cả';
+
+        let glossaryList = [
+            { term: 'ĐKTC (Đăng ký tín chỉ)', desc: 'Quá trình sinh viên tự chọn môn học, thời gian và giảng viên trên portal trường cho học kỳ tiếp theo. Yêu cầu bình tĩnh và canh giờ chuẩn!', tag: 'Thủ Tục' },
+            { term: 'GPA / CPA', desc: 'GPA (Grade Point Average) là điểm trung bình học kỳ. CPA (Cumulative Grade Point Average) là điểm trung bình tích lũy từ đầu khóa học.', tag: 'Học Tập' },
+            { term: 'RBL (Research-Based Learning)', desc: 'Phương pháp học tập dựa trên nghiên cứu khoa học, đặc thù trong các môn CNTT & SE tại Đại học FPT/VKU.', tag: 'ĐH FPT' },
+            { term: 'Học cải thiện', desc: 'Đăng ký học và thi lại một môn đã qua điểm (ví dụ điểm C/D) để nâng cao điểm GPA tích lũy. Điểm mới thường sẽ thay thế điểm cũ.', tag: 'Học Tập' },
+            { term: 'Môn Đại Cương vs Chuyên Ngành', desc: 'Đại cương: Môn nền tảng (Toán, Triết, Võ thuật, Tiếng Anh). Chuyên ngành: Môn cốt lõi theo ngành học (C/C++, Lập trình Web, Software Engineering).', tag: 'Chương Trình' },
+            { term: 'Tín chỉ (Credit)', desc: 'Đơn vị đo lường khối lượng học tập. 1 tín chỉ thường tương đương 15 tiết lý thuyết hoặc 30 tiết thực hành trên lớp.', tag: 'Cơ Bản' }
+        ];
+
+        let dealsList = [
+            { title: 'Giảm 50% Vé Xem Phim CGV/Lotte', category: 'Giải trí', desc: 'Đồng giá sinh viên từ thứ 2 đến thứ 6 khi xuất trình thẻ sinh viên FPT / VKU.' },
+            { title: 'Gói GitHub Student Developer Pack', category: 'Công nghệ', desc: 'Miễn phí Copilot, Domain .me, Canva Pro, JetBrains cho sinh viên IT.' },
+            { title: 'Tuyển Dev C/C++ / Web Thực Tập', category: 'Việc làm', desc: 'Công ty FPT Software Tuyển Thực Tập Sinh 2026 - Hỗ trợ phụ cấp 3.000.000đ/tháng.' }
+        ];
+
         let currentTab = 'explore';
-        let currentCategory = 'Tất cả';
-        let currentPriceFilter = 'Tất cả';
-        let currentUniversityFilter = 'Tất cả';
-        let currentSearchQuery = '';
         let selectedPlaceIdForDetail = null;
 
+        // Custom Finance State Management
+        let monthlyBudget = 3500000;
+        let expenses = [
+            { id: 'exp_1', title: 'Tiền phòng trọ / KTX', amount: 1200000, category: 'Nhà ở' },
+            { id: 'exp_2', title: 'Tiền ăn uống nửa đầu tháng', amount: 1100000, category: 'Ăn uống' },
+            { id: 'exp_3', title: 'In ấn tài liệu & Giáo trình', amount: 150000, category: 'Học tập' },
+            { id: 'exp_4', title: 'Xăng xe & Gửi xe trường', amount: 200000, category: 'Khác' }
+        ];
+
         window.addEventListener('DOMContentLoaded', () => {
-            const local = JSON.parse(localStorage.getItem('student_danang_atms_v2'));
-            if (local && local.length > 0) {
-                places = local;
-            }
+            const savedBudget = localStorage.getItem('student_monthly_budget');
+            const savedExpenses = localStorage.getItem('student_expenses_list');
+            if (savedBudget) monthlyBudget = parseFloat(savedBudget);
+            if (savedExpenses) expenses = JSON.parse(savedExpenses);
+
             renderTabContent();
             lucide.createIcons();
         });
 
-        function saveLocalData() {
-            localStorage.setItem('student_danang_atms_v2', JSON.stringify(places));
+        function saveFinanceData() {
+            localStorage.setItem('student_monthly_budget', monthlyBudget);
+            localStorage.setItem('student_expenses_list', JSON.stringify(expenses));
+        }
+
+        function switchTab(tab) {
+            currentTab = tab;
+            ['explore', 'academic', 'finance', 'community', 'glossary'].forEach(t => {
+                const btn = document.getElementById(`nav-${t}`);
+                if (btn) {
+                    if (t === tab) {
+                        btn.className = "flex flex-col items-center space-y-1 text-emerald-600 transition";
+                    } else {
+                        btn.className = "flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition";
+                    }
+                }
+            });
+            renderTabContent();
+        }
+
+        function renderTabContent() {
+            const container = document.getElementById('mainContainer');
+            if (currentTab === 'explore') container.innerHTML = renderExploreView();
+            else if (currentTab === 'academic') container.innerHTML = renderAcademicView();
+            else if (currentTab === 'finance') container.innerHTML = renderFinanceView();
+            else if (currentTab === 'community') container.innerHTML = renderCommunityView();
+            else if (currentTab === 'glossary') container.innerHTML = renderGlossaryView();
+            lucide.createIcons();
+        }
+
+        // --- 1. EXPLORE VIEW ---
+        function renderExploreView() {
+            return `
+                <div class="p-4 space-y-3.5">
+                    <div class="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl p-4 text-white shadow-md flex items-center justify-between">
+                        <div>
+                            <span class="px-2 py-0.5 bg-white/20 backdrop-blur-sm rounded text-[10px] font-bold uppercase tracking-wider">Hệ Thống Bản Đồ 2026</span>
+                            <h4 class="text-xs font-extrabold mt-1">ATM & Địa Điểm An Toàn Hòa Quý</h4>
+                            <p class="text-[10px] text-emerald-100 mt-0.5">Xác thực 100% quanh ĐH FPT & VKU</p>
+                        </div>
+                        <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shrink-0">
+                            <i data-lucide="shield-check" class="w-5 h-5 text-white"></i>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3 pt-1">
+                        ${places.map(p => `
+                            <div class="bg-white rounded-2xl border border-emerald-100 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition">
+                                <div class="relative h-36 bg-slate-100 bg-cover bg-center cursor-pointer" style="background-image: url('${p.image}')" onclick="openDetailModal('${p.id}')">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                                    <div class="absolute top-2.5 left-2.5">
+                                        <span class="px-2.5 py-1 bg-white/95 backdrop-blur-sm text-emerald-800 rounded-lg text-[10px] font-bold shadow-sm">${p.category}</span>
+                                    </div>
+                                    <div class="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-white text-[11px]">
+                                        <span class="font-medium bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm text-[10px]">${p.university}</span>
+                                        <div class="flex items-center space-x-1 font-bold bg-emerald-600/90 px-2 py-0.5 rounded text-[10px]">
+                                            <span>⭐ 5.0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-3.5 space-y-2">
+                                    <h4 onclick="openDetailModal('${p.id}')" class="text-xs font-extrabold text-slate-800 hover:text-emerald-600 cursor-pointer">${p.name}</h4>
+                                    <p class="text-[11px] text-slate-500 truncate flex items-center space-x-1">
+                                        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                                        <span>${p.address}</span>
+                                    </p>
+                                    <div class="p-2 bg-emerald-50/60 rounded-xl border border-emerald-100 text-[10px] text-emerald-800 font-medium flex items-center space-x-1.5">
+                                        <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
+                                        <span class="truncate">${p.safetyBadge}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- 2. ACADEMIC ASSISTANT VIEW (EXPANDED DOCUMENTS HUB) ---
+        function renderAcademicView() {
+            const filteredDocs = selectedDocSubject === 'Tất cả' 
+                ? academicDocs 
+                : academicDocs.filter(d => d.subject.includes(selectedDocSubject));
+
+            return `
+                <div class="p-4 space-y-4 text-xs">
+                    <!-- Calculator Card -->
+                    <div class="bg-white p-4 rounded-2xl border border-emerald-100 shadow-sm space-y-3">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2 text-emerald-600 font-bold">
+                                <i data-lucide="calculator" class="w-4 h-4"></i>
+                                <h3 class="text-xs text-slate-800">Tính Điểm Final Exam Cần Đạt</h3>
+                            </div>
+                            <span class="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md font-bold">Môn FPT / VKU</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-[10px] text-slate-500 mb-1">Chuyên cần (10%)</label>
+                                <input type="number" id="scoreCc" value="10" max="10" class="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-xs">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] text-slate-500 mb-1">Giữa kỳ Midterm (30%)</label>
+                                <input type="number" id="scoreMid" value="6.5" max="10" class="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-xs">
+                            </div>
+                        </div>
+                        <button onclick="calculateFinalScore()" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition shadow-md shadow-emerald-100 flex items-center justify-center space-x-1.5">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                            <span>Tính Điểm Thi Cần Qua Môn</span>
+                        </button>
+                        <div id="calcResult" class="hidden p-3 bg-emerald-50/80 rounded-xl border border-emerald-200 text-emerald-900 font-medium leading-relaxed"></div>
+                    </div>
+
+                    <!-- EXPANDED DOCUMENTS HUB SECTION -->
+                    <div class="bg-white p-4 rounded-2xl border border-emerald-100 shadow-sm space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-bold text-slate-800 text-xs flex items-center space-x-1.5">
+                                <i data-lucide="folder-git-2" class="w-4 h-4 text-emerald-600"></i>
+                                <span>Kho Tài Liệu & Review Môn Học Phong Phú</span>
+                            </h4>
+                            <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">${academicDocs.length} Tài liệu</span>
+                        </div>
+
+                        <!-- Filter Subjects -->
+                        <div class="flex items-center space-x-1.5 overflow-x-auto pb-1 no-scrollbar text-[11px]">
+                            ${['Tất cả', 'CSI106', 'MAE101', 'PRJ301', 'CEA201', 'SSG104'].map(sub => `
+                                <button onclick="setDocSubject('${sub}')" class="px-2.5 py-1 rounded-xl font-semibold whitespace-nowrap transition ${selectedDocSubject === sub ? 'bg-emerald-600 text-white shadow-sm' : 'bg-slate-50 border border-slate-200 text-slate-600'}">
+                                    ${sub}
+                                </button>
+                            `).join('')}
+                        </div>
+
+                        <!-- Document List -->
+                        <div class="space-y-2 pt-1">
+                            ${filteredDocs.map(doc => `
+                                <div class="p-3 bg-slate-50/80 hover:bg-emerald-50/50 rounded-xl border border-slate-100 transition space-y-2">
+                                    <div class="flex items-start justify-between">
+                                        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold text-[9px]">${doc.subject}</span>
+                                        <span class="text-[10px] font-medium text-slate-400">${doc.size}</span>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-slate-800 text-[11px] leading-snug">${doc.title}</h5>
+                                        <p class="text-[10px] text-slate-500 mt-0.5">Phân loại: <span class="font-semibold text-emerald-700">${doc.type}</span> • Tác giả: ${doc.author}</p>
+                                    </div>
+                                    <div class="flex items-center justify-end space-x-2 pt-1 border-t border-slate-200/60">
+                                        <button onclick="showToast('Đang mở xem trước tài liệu...')" class="px-2.5 py-1 bg-white border border-slate-200 text-slate-700 rounded-lg text-[10px] font-bold hover:bg-slate-100">Xem trước</button>
+                                        <button onclick="downloadDoc('${doc.title}')" class="px-3 py-1 bg-emerald-600 text-white rounded-lg text-[10px] font-bold hover:bg-emerald-700 shadow-sm flex items-center space-x-1">
+                                            <i data-lucide="download" class="w-3 h-3"></i>
+                                            <span>Tải về</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- 3. CUSTOM SMART BUDGETING VIEW (FREELY CUSTOMIZABLE) ---
+        function renderFinanceView() {
+            const totalSpent = expenses.reduce((acc, curr) => acc + curr.amount, 0);
+            const remaining = monthlyBudget - totalSpent;
+            const percentSpent = monthlyBudget > 0 ? Math.min(100, Math.round((totalSpent / monthlyBudget) * 100)) : 0;
+
+            return `
+                <div class="p-4 space-y-4 text-xs">
+                    <!-- Customizable Budget Card -->
+                    <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-4 rounded-2xl shadow-md space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">Cấu Hình Ngân Sách Sinh Viên</span>
+                            <button onclick="updateMonthlyBudgetPrompt()" class="px-2 py-1 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 rounded-lg text-[10px] font-semibold border border-emerald-500/30 flex items-center space-x-1">
+                                <i data-lucide="edit-3" class="w-3 h-3"></i>
+                                <span>Đặt Ngân Sách</span>
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-2 border-y border-slate-700/80 py-2.5">
+                            <div>
+                                <p class="text-[10px] text-slate-400">Tổng ngân sách tháng:</p>
+                                <h4 class="text-sm font-extrabold text-white">${monthlyBudget.toLocaleString()} VNĐ</h4>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-slate-400">Còn lại có thể chi:</p>
+                                <h4 class="text-sm font-extrabold ${remaining < 0 ? 'text-rose-400' : 'text-emerald-400'}">${remaining.toLocaleString()} VNĐ</h4>
+                            </div>
+                        </div>
+
+                        <!-- Progress Bar -->
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-[10px] text-slate-300">
+                                <span>Đã tiêu: ${totalSpent.toLocaleString()} VNĐ</span>
+                                <span>${percentSpent}%</span>
+                            </div>
+                            <div class="w-full bg-slate-700 h-2.5 rounded-full overflow-hidden">
+                                <div class="h-full transition-all duration-500 ${percentSpent > 85 ? 'bg-rose-500' : 'bg-emerald-400'}" style="width: ${percentSpent}%"></div>
+                            </div>
+                        </div>
+
+                        <p class="text-[10px] text-slate-300 italic">
+                            ${remaining < 0 ? '🚨 CẢNH BÁO: Bạn đã vượt quá ngân sách đặt ra!' : percentSpent > 75 ? '⚠️ Sắp chạm ngưỡng hạn mức! Hãy thắt chặt chi tiêu nhé.' : '✅ Tài chính an toàn. Chuẩn bị tiết kiệm được dư dả!'}
+                        </p>
+                    </div>
+
+                    <!-- Custom Expense Itemization -->
+                    <div class="bg-white p-4 rounded-2xl border border-emerald-100 shadow-sm space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-bold text-slate-800 text-xs flex items-center space-x-1.5">
+                                <i data-lucide="pie-chart" class="w-4 h-4 text-emerald-600"></i>
+                                <span>Danh Sách Khoản Chi Theo Mục</span>
+                            </h4>
+                            <button onclick="openExpenseModal()" class="px-2.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-[10px] shadow-sm flex items-center space-x-1">
+                                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                                <span>Thêm Mục Chi</span>
+                            </button>
+                        </div>
+
+                        <!-- Expense Items List -->
+                        <div class="space-y-2 pt-1">
+                            ${expenses.length === 0 ? `
+                                <p class="text-center text-slate-400 text-[11px] py-4">Chưa có khoản chi nào. Nhấn "Thêm Mục Chi" để cài đặt!</p>
+                            ` : expenses.map(exp => `
+                                <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between">
+                                    <div class="space-y-0.5">
+                                        <div class="flex items-center space-x-1.5">
+                                            <span class="font-bold text-slate-800 text-[11px]">${exp.title}</span>
+                                            <span class="px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded text-[9px] font-bold">${exp.category}</span>
+                                        </div>
+                                        <p class="text-[10px] font-extrabold text-emerald-700">${exp.amount.toLocaleString()} VNĐ</p>
+                                    </div>
+                                    <button onclick="deleteExpense('${exp.id}')" class="p-1.5 text-slate-400 hover:text-rose-600 transition" title="Xóa khoản chi">
+                                        <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                                    </button>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Săn Deal -->
+                    <div class="bg-white p-4 rounded-2xl border border-emerald-100 shadow-sm space-y-3">
+                        <h4 class="font-bold text-slate-800 text-xs flex items-center space-x-1">
+                            <i data-lucide="tag" class="w-3.5 h-3.5 text-emerald-600"></i>
+                            <span>Ưu Đãi & Deal Sinh Viên Giúp Tiết Kiệm</span>
+                        </h4>
+                        <div class="space-y-2">
+                            ${dealsList.map(d => `
+                                <div class="p-3 bg-emerald-50/40 rounded-xl border border-emerald-100/60 space-y-1">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-bold text-slate-800 text-[11px]">${d.title}</span>
+                                        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold text-[9px]">${d.category}</span>
+                                    </div>
+                                    <p class="text-[10px] text-slate-600 leading-relaxed">${d.desc}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- 4. COMMUNITY VIEW ---
+        function renderCommunityView() {
+            return `
+                <div class="p-4 space-y-4 text-xs">
+                    <div class="bg-white p-4 rounded-2xl border border-emerald-100 shadow-sm space-y-2">
+                        <div class="flex items-center space-x-2 text-emerald-600 font-bold">
+                            <i data-lucide="users" class="w-4 h-4"></i>
+                            <h3 class="text-sm text-slate-800">Tìm Bạn Học Nhóm & Ở Ghép</h3>
+                        </div>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">Gắn kết sinh viên ĐH FPT & VKU Đà Nẵng cùng khu vực ở trọ Hòa Quý.</p>
+                        <button onclick="showToast('Đã mở tính năng ghép đôi học tập!')" class="w-full py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold rounded-xl transition text-[11px] border border-emerald-200/60">
+                            + Đăng Tin Tìm Bạn Học / Ở Ghép
+                        </button>
+                    </div>
+
+                    <div class="bg-gradient-to-r from-emerald-500 to-teal-600 text-white p-4 rounded-2xl shadow-md space-y-2.5">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2 py-0.5 bg-white/20 backdrop-blur-sm rounded text-[10px] font-bold">Mental Health 💚</span>
+                            <i data-lucide="heart-pulse" class="w-4 h-4"></i>
+                        </div>
+                        <h4 class="font-bold text-xs">Góc Giải Tỏa Tâm Lý & Stress</h4>
+                        <p class="text-[10px] text-emerald-100 leading-relaxed">Cảm thấy áp lực với môi trường đại học mới? Làm bài trắc nghiệm ngắn để kiểm tra mức độ stress nhé.</p>
+                        <button onclick="showToast('Đang tải bài test tâm lý DASS-21...')" class="px-3 py-1.5 bg-white text-emerald-800 font-bold rounded-xl text-[10px] shadow-sm hover:bg-emerald-50 transition">
+                            Làm bài test DASS-21 (2 phút)
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- 5. GLOSSARY VIEW ---
+        function renderGlossaryView() {
+            return `
+                <div class="p-4 space-y-3.5 text-xs">
+                    <div class="bg-white p-4 rounded-2xl border border-emerald-100 shadow-sm space-y-1">
+                        <h3 class="font-extrabold text-slate-800 text-sm">Sổ Tay Thuật Ngữ Đại Học 📖</h3>
+                        <p class="text-slate-500 text-[11px]">Giải mã toàn bộ các khái niệm lạ lẫm dành riêng cho tân sinh viên.</p>
+                    </div>
+
+                    <div class="space-y-2.5">
+                        ${glossaryList.map(g => `
+                            <div class="bg-white p-3.5 rounded-2xl border border-emerald-100 shadow-sm space-y-1 hover:border-emerald-300 transition">
+                                <div class="flex items-center justify-between">
+                                    <h4 class="font-bold text-emerald-800 text-xs">${g.term}</h4>
+                                    <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 rounded text-[9px] font-bold border border-emerald-200/50">${g.tag}</span>
+                                </div>
+                                <p class="text-[11px] text-slate-600 leading-relaxed">${g.desc}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        // --- FINANCE LOGIC & HANDLERS ---
+        function updateMonthlyBudgetPrompt() {
+            const input = prompt("Nhập tổng ngân sách chi tiêu tháng mới (VNĐ):", monthlyBudget);
+            if (input !== null && !isNaN(input) && parseFloat(input) >= 0) {
+                monthlyBudget = parseFloat(input);
+                saveFinanceData();
+                renderTabContent();
+                showToast("Cập nhật tổng ngân sách thành công!");
+            }
+        }
+
+        function openExpenseModal() {
+            document.getElementById('expenseModal').classList.remove('hidden');
+        }
+
+        function closeExpenseModal() {
+            document.getElementById('expenseModal').classList.add('hidden');
+        }
+
+        function handleAddExpense(e) {
+            e.preventDefault();
+            const title = document.getElementById('expenseTitle').value;
+            const amount = parseFloat(document.getElementById('expenseAmount').value) || 0;
+            const category = document.getElementById('expenseCategory').value;
+
+            const newExp = {
+                id: 'exp_' + Date.now(),
+                title: title,
+                amount: amount,
+                category: category
+            };
+
+            expenses.unshift(newExp);
+            saveFinanceData();
+            closeExpenseModal();
+            renderTabContent();
+            showToast("Đã thêm mục chi tiêu thành công!");
+        }
+
+        function deleteExpense(id) {
+            expenses = expenses.filter(e => e.id !== id);
+            saveFinanceData();
+            renderTabContent();
+            showToast("Đã xóa khoản chi!");
+        }
+
+        function setDocSubject(sub) {
+            selectedDocSubject = sub;
+            renderTabContent();
+        }
+
+        function downloadDoc(title) {
+            showToast(`Đang tải tài liệu: ${title}`);
+        }
+
+        function calculateFinalScore() {
+            const cc = parseFloat(document.getElementById('scoreCc').value) || 0;
+            const mid = parseFloat(document.getElementById('scoreMid').value) || 0;
+            const currentTotal = (cc * 0.1) + (mid * 0.3);
+
+            const neededFor4 = Math.max(4.0, ((4.0 - currentTotal) / 0.6)).toFixed(1);
+            const neededFor7 = Math.max(4.0, ((7.0 - currentTotal) / 0.6)).toFixed(1);
+
+            const resultDiv = document.getElementById('calcResult');
+            resultDiv.classList.remove('hidden');
+            resultDiv.innerHTML = `
+                <p class="font-bold text-xs text-emerald-950 mb-1">🎯 Chiến lược điểm thi Final (Trọng số 60%):</p>
+                <ul class="list-disc list-inside space-y-1 text-[11px]">
+                    <li>Để <strong>Qua môn (Điểm D)</strong>: Cần đạt tối thiểu <strong>${neededFor4}</strong> điểm Final.</li>
+                    <li>Để đạt <strong>Điểm Khá/Giỏi (Điểm B/A)</strong>: Cần đạt khoảng <strong>${neededFor7}</strong> điểm Final.</li>
+                </ul>
+            `;
         }
 
         function showToast(message) {
@@ -444,297 +708,6 @@
             }, 2500);
         }
 
-        function switchTab(tab) {
-            currentTab = tab;
-            ['explore', 'map', 'saved', 'profile'].forEach(t => {
-                const btn = document.getElementById(`nav-${t}`);
-                if (t === tab) {
-                    btn.className = "flex flex-col items-center space-y-1 text-blue-600 transition";
-                } else {
-                    btn.className = "flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition";
-                }
-            });
-            renderTabContent();
-        }
-
-        function renderTabContent() {
-            const container = document.getElementById('mainContainer');
-            if (currentTab === 'explore') {
-                container.innerHTML = renderExploreView();
-            } else if (currentTab === 'map') {
-                container.innerHTML = renderTrustRankingView();
-            } else if (currentTab === 'saved') {
-                container.innerHTML = renderSavedView();
-            } else if (currentTab === 'profile') {
-                container.innerHTML = renderProfileView();
-            }
-            lucide.createIcons();
-        }
-
-        // --- EXPLORE VIEW ---
-        function renderExploreView() {
-            const filtered = places.filter(p => {
-                const matchCat = currentCategory === 'Tất cả' || p.category === currentCategory;
-                const matchPrice = currentPriceFilter === 'Tất cả' || p.priceRange === currentPriceFilter;
-                const matchUni = currentUniversityFilter === 'Tất cả' || p.university === currentUniversityFilter;
-                const matchSearch = p.name.toLowerCase().includes(currentSearchQuery.toLowerCase()) ||
-                    p.address.toLowerCase().includes(currentSearchQuery.toLowerCase()) ||
-                    p.review.toLowerCase().includes(currentSearchQuery.toLowerCase());
-                return matchCat && matchPrice && matchUni && matchSearch;
-            });
-
-            return `
-                <div class="p-4 space-y-3.5">
-                    <!-- Stat Bar Banner -->
-                    <div class="bg-gradient-to-r from-blue-700 to-indigo-700 rounded-2xl p-4 text-white shadow-md flex items-center justify-between">
-                        <div>
-                            <span class="px-2 py-0.5 bg-white/20 backdrop-blur-sm rounded text-[10px] font-semibold uppercase tracking-wider">Hệ Thống Tra Cứu ATM</span>
-                            <h4 class="text-xs font-bold mt-1">Đầy đủ ${places.length} điểm rút/nộp tiền Hòa Quý</h4>
-                            <p class="text-[10px] text-blue-100 mt-0.5">Cập nhật ảnh thực tế & địa chỉ chính xác 100%</p>
-                        </div>
-                        <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shrink-0">
-                            <i data-lucide="shield-check" class="w-5 h-5"></i>
-                        </div>
-                    </div>
-
-                    <!-- Search Input -->
-                    <div class="relative">
-                        <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                        <input type="text" id="searchInput" oninput="handleSearchInput()" value="${currentSearchQuery}" placeholder="Tìm tên ngân hàng, tên đường, địa chỉ..." class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-2xl text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm">
-                    </div>
-
-                    <!-- Filter Categories (Ngân hàng) -->
-                    <div class="flex items-center space-x-2 overflow-x-auto pb-1 no-scrollbar text-xs">
-                        ${['Tất cả', 'Agribank', 'Vietcombank', 'TPBank LiveBank', 'MB Bank', 'BIDV', 'VietinBank', 'Techcombank'].map(cat => `
-                            <button onclick="setCategory('${cat}')" class="px-3 py-1.5 rounded-xl font-semibold whitespace-nowrap transition shadow-sm ${currentCategory === cat ? 'bg-blue-600 text-white shadow-blue-100' : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'}">
-                                ${cat === 'Tất cả' ? '🏦 Tất cả Ngân hàng' : cat}
-                            </button>
-                        `).join('')}
-                    </div>
-
-                    <!-- Filter Options -->
-                    <div class="grid grid-cols-2 gap-2 text-xs">
-                        <select id="priceFilter" onchange="handlePriceFilter(this)" class="px-3 py-2 bg-white border border-slate-200 rounded-xl text-slate-700 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm">
-                            <option value="Tất cả" ${currentPriceFilter === 'Tất cả' ? 'selected' : ''}>Loại hình: Tất cả</option>
-                            <option value="Rút tiền mặt 24/7" ${currentPriceFilter === 'Rút tiền mặt 24/7' ? 'selected' : ''}>🏧 Rút tiền mặt 24/7</option>
-                            <option value="Nộp & Rút tiền (CDM/LiveBank)" ${currentPriceFilter === 'Nộp & Rút tiền (CDM/LiveBank)' ? 'selected' : ''}>📥 Nộp & Rút (CDM/LiveBank)</option>
-                            <option value="Phòng Giao Dịch trực tiếp" ${currentPriceFilter === 'Phòng Giao Dịch trực tiếp' ? 'selected' : ''}>🏦 Phòng Giao Dịch</option>
-                        </select>
-                        
-                        <select id="uniFilter" onchange="handleUniFilter(this)" class="px-3 py-2 bg-white border border-slate-200 rounded-xl text-slate-700 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm">
-                            <option value="Tất cả" ${currentUniversityFilter === 'Tất cả' ? 'selected' : ''}>Phạm vi: Tất cả khu vực</option>
-                            <option value="ĐH FPT & Khu FPT City" ${currentUniversityFilter === 'ĐH FPT & Khu FPT City' ? 'selected' : ''}>Gần ĐH FPT</option>
-                            <option value="ĐH VKU (Việt - Hàn)" ${currentUniversityFilter === 'ĐH VKU (Việt - Hàn)' ? 'selected' : ''}>Gần ĐH VKU</option>
-                            <option value="Trục Nam Kỳ Khởi Nghĩa" ${currentUniversityFilter === 'Trục Nam Kỳ Khởi Nghĩa' ? 'selected' : ''}>Đường Nam Kỳ Khởi Nghĩa</option>
-                            <option value="Trục Trần Đại Nghĩa" ${currentUniversityFilter === 'Trục Trần Đại Nghĩa' ? 'selected' : ''}>Đường Trần Đại Nghĩa</option>
-                            <option value="Khu giáp ranh Điện Ngọc" ${currentUniversityFilter === 'Khu giáp ranh Điện Ngọc' ? 'selected' : ''}>Khu vực Điện Ngọc</option>
-                        </select>
-                    </div>
-
-                    <!-- List of ATMs -->
-                    <div class="space-y-3 pt-1">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Danh Sách Cây ATM (${filtered.length})</h3>
-                            <span class="text-[10px] text-slate-400">Nhấn vào để xem ảnh thực tế & địa chỉ</span>
-                        </div>
-                        
-                        ${filtered.length === 0 ? `
-                            <div class="text-center py-10 bg-white rounded-2xl border border-slate-100 p-6">
-                                <i data-lucide="building-2" class="w-10 h-10 text-slate-300 mx-auto mb-2"></i>
-                                <p class="text-xs font-bold text-slate-700">Không tìm thấy địa điểm ATM phù hợp</p>
-                            </div>
-                        ` : filtered.map(p => `
-                            <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition">
-                                <div class="relative h-36 bg-slate-100 bg-cover bg-center cursor-pointer" style="background-image: url('${p.image}')" onclick="openDetailModal('${p.id}')">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                                    <div class="absolute top-2.5 left-2.5">
-                                        <span class="px-2.5 py-1 bg-white/95 backdrop-blur-sm text-blue-900 rounded-lg text-[10px] font-bold shadow-sm">${p.category}</span>
-                                    </div>
-                                    <button onclick="event.stopPropagation(); toggleSave('${p.id}')" class="absolute top-2.5 right-2.5 p-1.5 bg-white/90 backdrop-blur-sm rounded-full text-slate-600 hover:text-blue-600 transition shadow-sm">
-                                        <i data-lucide="bookmark" class="w-3.5 h-3.5 ${p.saved ? 'fill-blue-600 text-blue-600' : ''}"></i>
-                                    </button>
-                                    <div class="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-white text-[11px]">
-                                        <span class="font-medium bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm text-[10px]">${p.university}</span>
-                                        <div class="flex items-center space-x-1 font-bold bg-blue-600/90 px-2 py-0.5 rounded text-[10px]">
-                                            <span>⭐ ${p.trustRating.split('-')[0].trim()}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="p-3.5 space-y-2">
-                                    <div>
-                                        <h4 onclick="openDetailModal('${p.id}')" class="text-xs font-bold text-slate-800 hover:text-blue-600 cursor-pointer leading-snug">${p.name}</h4>
-                                        <p class="text-[11px] text-slate-500 truncate mt-1 flex items-start space-x-1">
-                                            <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5"></i>
-                                            <span>${p.address}</span>
-                                        </p>
-                                    </div>
-                                    <div class="p-2 bg-slate-50 rounded-xl border border-slate-100 text-[10px] text-slate-600 font-medium flex items-center space-x-1.5">
-                                        <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
-                                        <span class="truncate">${p.safetyBadge || 'An toàn & Đầy đủ đèn chiếu sáng'}</span>
-                                    </div>
-                                    <div class="flex items-center justify-between pt-1 border-t border-slate-100 text-[11px]">
-                                        <span class="px-2 py-0.5 bg-blue-50 text-blue-700 font-semibold rounded-md text-[10px]">${p.priceRange}</span>
-                                        <button onclick="openDetailModal('${p.id}')" class="text-blue-600 font-bold hover:underline flex items-center space-x-1 text-[11px]">
-                                            <span>Xem chi tiết & Chỉ đường</span>
-                                            <i data-lucide="chevron-right" class="w-3 h-3"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
-        }
-
-        // --- TRUST RANKING VIEW ---
-        function renderTrustRankingView() {
-            const sortedByTrust = [...places].sort((a, b) => b.trustRating.localeCompare(a.trustRating));
-            return `
-                <div class="p-4 space-y-4 text-xs">
-                    <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm space-y-1">
-                        <h3 class="font-bold text-slate-800 text-sm">Xếp Hạng Độ Uy Tín & An Toàn 🛡️</h3>
-                        <p class="text-slate-500 text-[11px]">Đánh giá dựa trên tiêu chuẩn an ninh, bảo vệ túc trực, hệ thống chiếu sáng và khả năng hoạt động 24/7.</p>
-                    </div>
-                    <div class="space-y-3">
-                        ${sortedByTrust.map((p, index) => `
-                            <div onclick="openDetailModal('${p.id}')" class="bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm hover:border-blue-200 transition cursor-pointer flex items-start space-x-3">
-                                <div class="w-7 h-7 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center font-bold text-xs shrink-0 mt-1">
-                                    #${index + 1}
-                                </div>
-                                <div class="flex-1 space-y-1">
-                                    <div class="flex items-center justify-between">
-                                        <h4 class="font-bold text-slate-800 text-xs">${p.name}</h4>
-                                        <span class="text-[10px] font-bold text-amber-600 bg-amber-50 px-2 py-0.5 rounded-md">${p.trustRating.split('-')[0].trim()}</span>
-                                    </div>
-                                    <p class="text-[11px] text-slate-500 flex items-center space-x-1">
-                                        <i data-lucide="map-pin" class="w-3 h-3 text-slate-400 shrink-0"></i>
-                                        <span class="truncate">${p.address}</span>
-                                    </p>
-                                    <p class="text-[10px] text-emerald-700 font-medium bg-emerald-50/80 p-1.5 rounded-lg border border-emerald-100/60">
-                                        ${p.safetyBadge}
-                                    </p>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
-        }
-
-        // --- SAVED VIEW ---
-        function renderSavedView() {
-            const savedPlaces = places.filter(p => p.saved);
-            return `
-                <div class="p-4 space-y-4 text-xs">
-                    <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
-                        <h3 class="font-bold text-slate-800 text-sm">Điểm ATM Hay Sử Dụng ❤️</h3>
-                        <p class="text-slate-500 text-[11px]">Danh sách các điểm rút tiền bạn đã lưu trên thiết bị.</p>
-                    </div>
-                    ${savedPlaces.length === 0 ? `
-                        <div class="text-center py-12 bg-white rounded-2xl border border-slate-100 p-6">
-                            <i data-lucide="bookmark-minus" class="w-10 h-10 text-slate-300 mx-auto mb-2"></i>
-                            <p class="font-bold text-slate-700">Chưa lưu điểm ATM nào</p>
-                        </div>
-                    ` : `
-                        <div class="space-y-3">
-                            ${savedPlaces.map(p => `
-                                <div class="bg-white rounded-2xl border border-slate-100 shadow-sm p-3 flex items-center justify-between">
-                                    <div class="flex items-center space-x-3 cursor-pointer" onclick="openDetailModal('${p.id}')">
-                                        <div class="w-12 h-12 rounded-xl bg-slate-100 bg-cover bg-center shrink-0" style="background-image: url('${p.image}')"></div>
-                                        <div>
-                                            <h4 class="font-bold text-slate-800">${p.name}</h4>
-                                            <p class="text-[11px] text-slate-500">${p.category} • <span class="text-blue-600 font-semibold">${p.priceRange}</span></p>
-                                        </div>
-                                    </div>
-                                    <button onclick="toggleSave('${p.id}')" class="p-2 text-blue-600 hover:bg-blue-50 rounded-xl transition">
-                                        <i data-lucide="bookmark" class="w-4 h-4 fill-blue-600"></i>
-                                    </button>
-                                </div>
-                            `).join('')}
-                        </div>
-                    `}
-                </div>
-            `;
-        }
-
-        // --- PROFILE VIEW ---
-        function renderProfileView() {
-            return `
-                <div class="p-4 space-y-4 text-xs">
-                    <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm text-center space-y-3">
-                        <div class="w-16 h-16 bg-gradient-to-tr from-blue-600 to-indigo-600 text-white rounded-2xl flex items-center justify-center mx-auto text-2xl font-bold shadow-lg shadow-blue-100">💳</div>
-                        <div>
-                            <h3 class="font-bold text-slate-800 text-sm">Cẩm Nang ATM Sinh Viên Hòa Quý</h3>
-                            <p class="text-[11px] text-slate-500">Giải quyết bài toán tìm cây ATM rút & nộp tiền mặt cho sinh viên ĐH FPT & VKU</p>
-                        </div>
-                        <div class="p-2.5 bg-slate-50 rounded-xl">
-                            <p class="text-slate-400 text-[10px]">Đã cập nhật hệ thống dữ liệu</p>
-                            <p class="font-bold text-blue-600 text-sm">${places.length} Điểm ATM & Phòng Giao Dịch</p>
-                        </div>
-                    </div>
-                    <div class="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden divide-y divide-slate-100">
-                        <button onclick="openAddModal()" class="w-full p-3.5 text-left flex items-center justify-between hover:bg-slate-50 transition">
-                            <div class="flex items-center space-x-2.5 text-slate-700 font-medium">
-                                <i data-lucide="plus-circle" class="w-4 h-4 text-blue-600"></i>
-                                <span>Đóng góp thêm điểm ATM mới</span>
-                            </div>
-                            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
-                        </button>
-                    </div>
-                </div>
-            `;
-        }
-
-        // Filter Handlers
-        function setCategory(cat) { currentCategory = cat; renderTabContent(); }
-        function handlePriceFilter(select) { currentPriceFilter = select.value; renderTabContent(); }
-        function handleUniFilter(select) { currentUniversityFilter = select.value; renderTabContent(); }
-        function handleSearchInput() { currentSearchQuery = document.getElementById('searchInput').value; renderTabContent(); }
-
-        function toggleSave(id) {
-            const p = places.find(item => item.id === id);
-            if (p) {
-                p.saved = !p.saved;
-                saveLocalData();
-                renderTabContent();
-                showToast(p.saved ? 'Đã lưu điểm ATM vào danh sách' : 'Đã bỏ lưu');
-            }
-        }
-
-        // Modal Controls
-        function openAddModal() {
-            document.getElementById('placeForm').reset();
-            document.getElementById('placeModal').classList.remove('hidden');
-        }
-        function closeAddModal() {
-            document.getElementById('placeModal').classList.add('hidden');
-        }
-
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const newPlace = {
-                id: 'atm_' + Date.now(),
-                name: document.getElementById('placeName').value,
-                category: document.getElementById('placeCategory').value,
-                priceRange: document.getElementById('placePriceRange').value,
-                university: document.getElementById('placeUniversity').value,
-                address: document.getElementById('placeAddress').value,
-                trustRating: document.getElementById('placeTrustLevel').value,
-                safetyBadge: '🛡️ Đã được sinh viên kiểm chứng',
-                image: document.getElementById('placeImage').value || 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80',
-                review: document.getElementById('placeReview').value || 'Điểm ATM mới đóng góp.',
-                saved: false
-            };
-
-            places.unshift(newPlace);
-            saveLocalData();
-            closeAddModal();
-            renderTabContent();
-            showToast('Thêm địa điểm ATM mới thành công!');
-        }
-
-        // Detail Modal
         function openDetailModal(id) {
             const p = places.find(item => item.id === id);
             if (!p) return;
@@ -747,30 +720,20 @@
             document.getElementById('detailPriceBadge').innerText = p.priceRange;
             document.getElementById('detailUniversity').innerText = p.university;
             document.getElementById('detailTrustLevel').innerText = p.trustRating;
-            document.getElementById('detailReview').innerHTML = `
-                <p class="mb-1.5 font-semibold text-blue-950">${p.safetyBadge}</p>
-                <p>${p.review || 'Chưa có ghi chú chi tiết.'}</p>
-            `;
+            document.getElementById('detailReview').innerText = p.review;
 
-            // Link Google Maps
             const googleMapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name + ' ' + p.address)}`;
             document.getElementById('detailGoogleMapLink').href = googleMapUrl;
 
-            const saveBtnText = document.getElementById('detailSaveText');
-            saveBtnText.innerText = p.saved ? 'Đã lưu' : 'Lưu ATM';
             document.getElementById('detailModal').classList.remove('hidden');
         }
 
         function closeDetailModal() {
             document.getElementById('detailModal').classList.add('hidden');
-            selectedPlaceIdForDetail = null;
         }
 
         function toggleSaveFromDetail() {
-            if (selectedPlaceIdForDetail) {
-                toggleSave(selectedPlaceIdForDetail);
-                openDetailModal(selectedPlaceIdForDetail);
-            }
+            showToast('Đã lưu địa điểm cá nhân!');
         }
     </script>
 </body>
