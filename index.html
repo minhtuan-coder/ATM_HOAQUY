@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sinh Viên Đà Nẵng - Academic & Budget Hub</title>
+    <title>Sinh Viên Đà Nẵng - Academic Roadmap & Budget Hub</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -45,16 +46,30 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        @keyframes dice-roll {
+            0% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(90deg) scale(1.15); }
+            50% { transform: rotate(180deg) scale(0.9); }
+            75% { transform: rotate(270deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        .animate-dice {
+            animation: dice-roll 0.6s ease-in-out infinite;
+        }
     </style>
 </head>
 
 <body class="bg-slate-900 text-slate-800 font-sans min-h-screen flex items-center justify-center p-0 sm:p-4">
 
     <!-- Mobile App Container Frame -->
-    <div class="w-full sm:max-w-[420px] h-screen sm:h-[860px] bg-emerald-50/30 sm:rounded-[40px] shadow-2xl flex flex-col relative overflow-hidden border-0 sm:border-8 sm:border-slate-800">
+    <div
+        class="w-full sm:max-w-[420px] h-screen sm:h-[860px] bg-emerald-50/30 sm:rounded-[40px] shadow-2xl flex flex-col relative overflow-hidden border-0 sm:border-8 sm:border-slate-800">
 
         <!-- Mobile Status Bar -->
-        <div class="bg-white/90 backdrop-blur-md px-6 py-2.5 flex items-center justify-between text-xs font-semibold text-slate-700 shrink-0 z-40 border-b border-emerald-100/60">
+        <div
+            class="bg-white/90 backdrop-blur-md px-6 py-2.5 flex items-center justify-between text-xs font-semibold text-slate-700 shrink-0 z-40 border-b border-emerald-100/60">
             <span>09:41</span>
             <div class="w-24 h-4 bg-slate-900 rounded-full hidden sm:block"></div>
             <div class="flex items-center space-x-2 text-emerald-800">
@@ -65,18 +80,21 @@
         </div>
 
         <!-- App Header -->
-        <header id="appHeader" class="bg-white px-5 py-3.5 border-b border-emerald-100 flex items-center justify-between shrink-0 z-30 shadow-sm">
+        <header id="appHeader"
+            class="bg-white px-5 py-3.5 border-b border-emerald-100 flex items-center justify-between shrink-0 z-30 shadow-sm">
             <div class="flex items-center space-x-2.5">
-                <div class="w-9 h-9 bg-gradient-to-tr from-emerald-500 to-teal-400 text-white rounded-xl flex items-center justify-center shadow-md shadow-emerald-200">
+                <div
+                    class="w-9 h-9 bg-gradient-to-tr from-emerald-500 to-teal-400 text-white rounded-xl flex items-center justify-center shadow-md shadow-emerald-200">
                     <i data-lucide="sparkles" class="w-5 h-5"></i>
                 </div>
                 <div>
                     <h1 class="text-sm font-extrabold text-slate-800 leading-tight">Sinh Viên Đà Nẵng 🍀</h1>
-                    <p class="text-[10px] font-medium text-emerald-600">Trợ lý toàn năng • Khu FPT & VKU</p>
+                    <p class="text-[10px] font-medium text-emerald-600">Trợ lý toàn năng • Lộ trình ĐH FPT</p>
                 </div>
             </div>
             <div class="flex items-center space-x-1.5">
-                <button onclick="switchTab('glossary')" class="px-2.5 py-1.5 bg-emerald-50 text-emerald-700 rounded-xl hover:bg-emerald-100 transition font-semibold text-[11px] flex items-center space-x-1 border border-emerald-200/50">
+                <button onclick="switchTab('glossary')"
+                    class="px-2.5 py-1.5 bg-emerald-50 text-emerald-700 rounded-xl hover:bg-emerald-100 transition font-semibold text-[11px] flex items-center space-x-1 border border-emerald-200/50">
                     <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
                     <span>Thuật Ngữ</span>
                 </button>
@@ -87,31 +105,39 @@
         <main id="mainContainer" class="flex-1 overflow-y-auto pb-24 no-scrollbar relative">
             <div class="flex items-center justify-center h-full">
                 <div class="text-center space-y-2">
-                    <div class="w-8 h-8 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mx-auto"></div>
-                    <p class="text-xs text-slate-500">Đang khởi tạo hệ thống tài liệu & tài chính...</p>
+                    <div
+                        class="w-8 h-8 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin mx-auto">
+                    </div>
+                    <p class="text-xs text-slate-500">Đang khởi tạo lộ trình FPT & hệ thống...</p>
                 </div>
             </div>
         </main>
 
         <!-- Bottom Navigation Bar (5 Main Tabs) -->
-        <nav class="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-emerald-100 px-2 py-2 flex items-center justify-around z-40 shadow-lg">
-            <button onclick="switchTab('explore')" id="nav-explore" class="flex flex-col items-center space-y-1 text-emerald-600 transition">
+        <nav
+            class="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-emerald-100 px-2 py-2 flex items-center justify-around z-40 shadow-lg">
+            <button onclick="switchTab('explore')" id="nav-explore"
+                class="flex flex-col items-center space-y-1 text-emerald-600 transition">
                 <i data-lucide="map-pin" class="w-5 h-5"></i>
                 <span class="text-[9px] font-bold">Địa Điểm</span>
             </button>
-            <button onclick="switchTab('academic')" id="nav-academic" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition">
+            <button onclick="switchTab('academic')" id="nav-academic"
+                class="flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition">
                 <i data-lucide="graduation-cap" class="w-5 h-5"></i>
-                <span class="text-[9px] font-semibold">Học Tập</span>
+                <span class="text-[9px] font-semibold">Lộ Trình Học</span>
             </button>
-            <button onclick="switchTab('finance')" id="nav-finance" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition">
+            <button onclick="switchTab('finance')" id="nav-finance"
+                class="flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition">
                 <i data-lucide="wallet" class="w-5 h-5"></i>
                 <span class="text-[9px] font-semibold">Tài Chính</span>
             </button>
-            <button onclick="switchTab('community')" id="nav-community" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition">
-                <i data-lucide="users" class="w-5 h-5"></i>
-                <span class="text-[9px] font-semibold">Kết Nối</span>
+            <button onclick="switchTab('dice')" id="nav-dice"
+                class="flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition">
+                <i data-lucide="dices" class="w-5 h-5"></i>
+                <span class="text-[9px] font-semibold">Xúc Xắc</span>
             </button>
-            <button onclick="switchTab('glossary')" id="nav-glossary" class="flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition">
+            <button onclick="switchTab('glossary')" id="nav-glossary"
+                class="flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition">
                 <i data-lucide="book-marked" class="w-5 h-5"></i>
                 <span class="text-[9px] font-semibold">Sổ Tay</span>
             </button>
@@ -119,8 +145,10 @@
     </div>
 
     <!-- Add Custom Expense Modal -->
-    <div id="expenseModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden border border-emerald-100 flex flex-col">
+    <div id="expenseModal"
+        class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div
+            class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden border border-emerald-100 flex flex-col">
             <div class="p-4 border-b border-slate-100 flex items-center justify-between bg-emerald-50/50">
                 <h3 class="text-xs font-bold text-emerald-900 flex items-center space-x-1.5">
                     <i data-lucide="plus-circle" class="w-4 h-4 text-emerald-600"></i>
@@ -133,15 +161,19 @@
             <form onsubmit="handleAddExpense(event)" class="p-4 space-y-3 text-xs">
                 <div>
                     <label class="block font-semibold text-slate-700 mb-1">Tên khoản chi *</label>
-                    <input type="text" id="expenseTitle" required placeholder="Ví dụ: Tiền mua giáo trình, Ăn đồ nướng..." class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                    <input type="text" id="expenseTitle" required
+                        placeholder="Ví dụ: Tiền mua giáo trình, Ăn đồ nướng..."
+                        class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
                 </div>
                 <div>
                     <label class="block font-semibold text-slate-700 mb-1">Số tiền (VNĐ) *</label>
-                    <input type="number" id="expenseAmount" required placeholder="Ví dụ: 150000" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                    <input type="number" id="expenseAmount" required placeholder="Ví dụ: 150000"
+                        class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
                 </div>
                 <div>
                     <label class="block font-semibold text-slate-700 mb-1">Phân loại *</label>
-                    <select id="expenseCategory" class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                    <select id="expenseCategory"
+                        class="w-full px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500">
                         <option value="Nhà ở">🏠 Tiền nhà / KTX / Điện nước</option>
                         <option value="Ăn uống">🍜 Ăn uống & Cà phê</option>
                         <option value="Học tập">📚 Học tập & Tài liệu</option>
@@ -150,23 +182,31 @@
                     </select>
                 </div>
                 <div class="pt-2 flex justify-end space-x-2">
-                    <button type="button" onclick="closeExpenseModal()" class="px-3 py-2 rounded-xl border border-slate-200 text-slate-600">Hủy</button>
-                    <button type="submit" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md shadow-emerald-100">Thêm Mục Chi</button>
+                    <button type="button" onclick="closeExpenseModal()"
+                        class="px-3 py-2 rounded-xl border border-slate-200 text-slate-600">Hủy</button>
+                    <button type="submit"
+                        class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md shadow-emerald-100">Thêm
+                        Mục Chi</button>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- Detail View Modal -->
-    <div id="detailModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden border border-emerald-100 max-h-[88vh] flex flex-col">
+    <div id="detailModal"
+        class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div
+            class="bg-white w-full max-w-sm rounded-3xl shadow-2xl overflow-hidden border border-emerald-100 max-h-[88vh] flex flex-col">
             <div id="detailModalHeader" class="relative h-44 bg-slate-200 bg-cover bg-center">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
-                <button onclick="closeDetailModal()" class="absolute top-3 right-3 p-1.5 bg-black/50 hover:bg-black/70 text-white rounded-full transition">
+                <button onclick="closeDetailModal()"
+                    class="absolute top-3 right-3 p-1.5 bg-black/50 hover:bg-black/70 text-white rounded-full transition">
                     <i data-lucide="x" class="w-4 h-4"></i>
                 </button>
                 <div class="absolute bottom-3 left-3 right-3 text-white">
-                    <span id="detailCategoryBadge" class="px-2 py-0.5 bg-emerald-600 text-[10px] font-bold rounded-md mb-1 inline-block">Ngân Hàng</span>
+                    <span id="detailCategoryBadge"
+                        class="px-2 py-0.5 bg-emerald-600 text-[10px] font-bold rounded-md mb-1 inline-block">Ngân
+                        Hàng</span>
                     <h3 id="detailName" class="text-base font-bold leading-snug">Tên Cây ATM</h3>
                 </div>
             </div>
@@ -176,7 +216,9 @@
                         <i data-lucide="map-pin" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
                         <span id="detailAddress" class="font-medium leading-relaxed">Đang cập nhật địa chỉ...</span>
                     </div>
-                    <span id="detailPriceBadge" class="px-2 py-1 bg-emerald-50 text-emerald-700 rounded-md font-semibold text-[10px] shrink-0 whitespace-nowrap">Dịch vụ</span>
+                    <span id="detailPriceBadge"
+                        class="px-2 py-1 bg-emerald-50 text-emerald-700 rounded-md font-semibold text-[10px] shrink-0 whitespace-nowrap">Dịch
+                        vụ</span>
                 </div>
                 <div class="grid grid-cols-2 gap-2.5">
                     <div class="bg-emerald-50/50 p-2.5 rounded-xl border border-emerald-100/60 space-y-0.5">
@@ -189,30 +231,36 @@
                     </div>
                 </div>
                 <div>
-                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Mô Tả Thực Tế & Lưu Ý</p>
-                    <div id="detailReview" class="p-3 bg-emerald-50/60 rounded-xl text-slate-600 border border-emerald-100 leading-relaxed italic">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Mô Tả Thực Tế & Lưu Ý
+                    </p>
+                    <div id="detailReview"
+                        class="p-3 bg-emerald-50/60 rounded-xl text-slate-600 border border-emerald-100 leading-relaxed italic">
                         Chưa có đánh giá.
                     </div>
                 </div>
                 <div class="pt-1">
-                    <a id="detailGoogleMapLink" href="#" target="_blank" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold flex items-center justify-center space-x-2 transition shadow-md shadow-emerald-100">
+                    <a id="detailGoogleMapLink" href="#" target="_blank"
+                        class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold flex items-center justify-center space-x-2 transition shadow-md shadow-emerald-100">
                         <i data-lucide="navigation-2" class="w-4 h-4"></i>
                         <span>Chỉ đường trên Google Maps</span>
                     </a>
                 </div>
             </div>
             <div class="p-3.5 border-t border-slate-100 bg-slate-50 flex justify-between items-center text-xs">
-                <button id="detailSaveBtn" onclick="toggleSaveFromDetail()" class="px-3.5 py-2 bg-emerald-50 text-emerald-700 font-semibold rounded-xl hover:bg-emerald-100 transition flex items-center space-x-1.5 border border-emerald-200/50">
+                <button id="detailSaveBtn" onclick="toggleSaveFromDetail()"
+                    class="px-3.5 py-2 bg-emerald-50 text-emerald-700 font-semibold rounded-xl hover:bg-emerald-100 transition flex items-center space-x-1.5 border border-emerald-200/50">
                     <i data-lucide="bookmark" class="w-3.5 h-3.5"></i>
                     <span id="detailSaveText">Lưu lại</span>
                 </button>
-                <button onclick="closeDetailModal()" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium rounded-xl transition">Đóng</button>
+                <button onclick="closeDetailModal()"
+                    class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium rounded-xl transition">Đóng</button>
             </div>
         </div>
     </div>
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed top-10 left-1/2 -translate-x-1/2 z-50 transform -translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 text-white px-4 py-2.5 rounded-xl shadow-xl flex items-center space-x-2 text-xs">
+    <div id="toast"
+        class="fixed top-10 left-1/2 -translate-x-1/2 z-50 transform -translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 text-white px-4 py-2.5 rounded-xl shadow-xl flex items-center space-x-2 text-xs">
         <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
         <span id="toastMessage">Cập nhật thành công!</span>
     </div>
@@ -262,480 +310,13 @@
             }
         ];
 
-        // Extended Academic Documents Store
-        let academicDocs = [
-            { id: 'doc_1', subject: 'CSI106 / C Programming', title: 'Tổng hợp 50 Bài Tập C & Đề Thi Practical Exam (PE) Kỳ Fall', type: 'Đề Thi PE/FE', size: '4.2 MB', author: 'Thầy Cường FPT' },
-            { id: 'doc_2', subject: 'CSI106 / C Programming', title: 'Full Bộ Slide Giảng Bài & Code Mẫu Pointer, Struct, Dynamic Allocation', type: 'Slide & Code', size: '12.8 MB', author: 'CLB IT FPT' },
-            { id: 'doc_3', subject: 'MAE101 / Calculus 1', title: 'Tóm Tắt Công Thức Đạo Hàm, Tích Phân & Giải Bài Tập Ôn Thi FE', type: 'Tài Liệu Ôn Thi', size: '2.1 MB', author: 'Ban Cố Vấn MAE' },
-            { id: 'doc_4', subject: 'MAE101 / Calculus 1', title: 'Review Chi Tiết Giảng Viên MAE101 & Kinh Nghiệm Qua Môn Không Cần Học Lại', type: 'Review Môn Học', size: '1.0 MB', author: 'K18 FPT Danang' },
-            { id: 'doc_5', subject: 'PRJ301 / Java Web', title: 'Template Dự Án Web JSP/Servlet Chuẩn MVC + Hướng Dẫn Kết Nối SQL Server', type: 'Code Mẫu & Project', size: '15.5 MB', author: 'Dev Club Danang' },
-            { id: 'doc_6', subject: 'CEA201 / Computer Architecture', title: 'Bộ Câu Hỏi Trắc Nghiệm MIPS Assembly & Kiến Trúc Máy Tính Có Đáp Án', type: 'Đề Thi Trắc Nghiệm', size: '3.4 MB', author: 'K19 VKU' },
-            { id: 'doc_7', subject: 'SSG104 / MKT101', title: 'Slide Thuyết Trình Kỹ Năng Mềm Mẫu & Đề Tài Khởi Nghiệp Đạt Điểm A', type: 'Slide & Báo Cáo', size: '8.0 MB', author: 'Student Community' }
-        ];
+        // --- FPT UNIVERSITY MAJORS ROADMAP DATA ---
+        let selectedMajorKey = 'SE'; // Default: Software Engineering
+        let activeSemesterFilter = 'All'; // 'All' or semester number 1-9
 
-        let selectedDocSubject = 'Tất cả';
-
-        let glossaryList = [
-            { term: 'ĐKTC (Đăng ký tín chỉ)', desc: 'Quá trình sinh viên tự chọn môn học, thời gian và giảng viên trên portal trường cho học kỳ tiếp theo. Yêu cầu bình tĩnh và canh giờ chuẩn!', tag: 'Thủ Tục' },
-            { term: 'GPA / CPA', desc: 'GPA (Grade Point Average) là điểm trung bình học kỳ. CPA (Cumulative Grade Point Average) là điểm trung bình tích lũy từ đầu khóa học.', tag: 'Học Tập' },
-            { term: 'RBL (Research-Based Learning)', desc: 'Phương pháp học tập dựa trên nghiên cứu khoa học, đặc thù trong các môn CNTT & SE tại Đại học FPT/VKU.', tag: 'ĐH FPT' },
-            { term: 'Học cải thiện', desc: 'Đăng ký học và thi lại một môn đã qua điểm (ví dụ điểm C/D) để nâng cao điểm GPA tích lũy. Điểm mới thường sẽ thay thế điểm cũ.', tag: 'Học Tập' },
-            { term: 'Môn Đại Cương vs Chuyên Ngành', desc: 'Đại cương: Môn nền tảng (Toán, Triết, Võ thuật, Tiếng Anh). Chuyên ngành: Môn cốt lõi theo ngành học (C/C++, Lập trình Web, Software Engineering).', tag: 'Chương Trình' },
-            { term: 'Tín chỉ (Credit)', desc: 'Đơn vị đo lường khối lượng học tập. 1 tín chỉ thường tương đương 15 tiết lý thuyết hoặc 30 tiết thực hành trên lớp.', tag: 'Cơ Bản' }
-        ];
-
-        let dealsList = [
-            { title: 'Giảm 50% Vé Xem Phim CGV/Lotte', category: 'Giải trí', desc: 'Đồng giá sinh viên từ thứ 2 đến thứ 6 khi xuất trình thẻ sinh viên FPT / VKU.' },
-            { title: 'Gói GitHub Student Developer Pack', category: 'Công nghệ', desc: 'Miễn phí Copilot, Domain .me, Canva Pro, JetBrains cho sinh viên IT.' },
-            { title: 'Tuyển Dev C/C++ / Web Thực Tập', category: 'Việc làm', desc: 'Công ty FPT Software Tuyển Thực Tập Sinh 2026 - Hỗ trợ phụ cấp 3.000.000đ/tháng.' }
-        ];
-
-        let currentTab = 'explore';
-        let selectedPlaceIdForDetail = null;
-
-        // Custom Finance State Management
-        let monthlyBudget = 3500000;
-        let expenses = [
-            { id: 'exp_1', title: 'Tiền phòng trọ / KTX', amount: 1200000, category: 'Nhà ở' },
-            { id: 'exp_2', title: 'Tiền ăn uống nửa đầu tháng', amount: 1100000, category: 'Ăn uống' },
-            { id: 'exp_3', title: 'In ấn tài liệu & Giáo trình', amount: 150000, category: 'Học tập' },
-            { id: 'exp_4', title: 'Xăng xe & Gửi xe trường', amount: 200000, category: 'Khác' }
-        ];
-
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedBudget = localStorage.getItem('student_monthly_budget');
-            const savedExpenses = localStorage.getItem('student_expenses_list');
-            if (savedBudget) monthlyBudget = parseFloat(savedBudget);
-            if (savedExpenses) expenses = JSON.parse(savedExpenses);
-
-            renderTabContent();
-            lucide.createIcons();
-        });
-
-        function saveFinanceData() {
-            localStorage.setItem('student_monthly_budget', monthlyBudget);
-            localStorage.setItem('student_expenses_list', JSON.stringify(expenses));
-        }
-
-        function switchTab(tab) {
-            currentTab = tab;
-            ['explore', 'academic', 'finance', 'community', 'glossary'].forEach(t => {
-                const btn = document.getElementById(`nav-${t}`);
-                if (btn) {
-                    if (t === tab) {
-                        btn.className = "flex flex-col items-center space-y-1 text-emerald-600 transition";
-                    } else {
-                        btn.className = "flex flex-col items-center space-y-1 text-slate-400 hover:text-slate-600 transition";
-                    }
-                }
-            });
-            renderTabContent();
-        }
-
-        function renderTabContent() {
-            const container = document.getElementById('mainContainer');
-            if (currentTab === 'explore') container.innerHTML = renderExploreView();
-            else if (currentTab === 'academic') container.innerHTML = renderAcademicView();
-            else if (currentTab === 'finance') container.innerHTML = renderFinanceView();
-            else if (currentTab === 'community') container.innerHTML = renderCommunityView();
-            else if (currentTab === 'glossary') container.innerHTML = renderGlossaryView();
-            lucide.createIcons();
-        }
-
-        // --- 1. EXPLORE VIEW ---
-        function renderExploreView() {
-            return `
-                <div class="p-4 space-y-3.5">
-                    <div class="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-2xl p-4 text-white shadow-md flex items-center justify-between">
-                        <div>
-                            <span class="px-2 py-0.5 bg-white/20 backdrop-blur-sm rounded text-[10px] font-bold uppercase tracking-wider">Hệ Thống Bản Đồ 2026</span>
-                            <h4 class="text-xs font-extrabold mt-1">ATM & Địa Điểm An Toàn Hòa Quý</h4>
-                            <p class="text-[10px] text-emerald-100 mt-0.5">Xác thực 100% quanh ĐH FPT & VKU</p>
-                        </div>
-                        <div class="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center shrink-0">
-                            <i data-lucide="shield-check" class="w-5 h-5 text-white"></i>
-                        </div>
-                    </div>
-
-                    <div class="space-y-3 pt-1">
-                        ${places.map(p => `
-                            <div class="bg-white rounded-2xl border border-emerald-100 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition">
-                                <div class="relative h-36 bg-slate-100 bg-cover bg-center cursor-pointer" style="background-image: url('${p.image}')" onclick="openDetailModal('${p.id}')">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                                    <div class="absolute top-2.5 left-2.5">
-                                        <span class="px-2.5 py-1 bg-white/95 backdrop-blur-sm text-emerald-800 rounded-lg text-[10px] font-bold shadow-sm">${p.category}</span>
-                                    </div>
-                                    <div class="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-white text-[11px]">
-                                        <span class="font-medium bg-black/50 px-2 py-0.5 rounded backdrop-blur-sm text-[10px]">${p.university}</span>
-                                        <div class="flex items-center space-x-1 font-bold bg-emerald-600/90 px-2 py-0.5 rounded text-[10px]">
-                                            <span>⭐ 5.0</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="p-3.5 space-y-2">
-                                    <h4 onclick="openDetailModal('${p.id}')" class="text-xs font-extrabold text-slate-800 hover:text-emerald-600 cursor-pointer">${p.name}</h4>
-                                    <p class="text-[11px] text-slate-500 truncate flex items-center space-x-1">
-                                        <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
-                                        <span>${p.address}</span>
-                                    </p>
-                                    <div class="p-2 bg-emerald-50/60 rounded-xl border border-emerald-100 text-[10px] text-emerald-800 font-medium flex items-center space-x-1.5">
-                                        <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-600 shrink-0"></i>
-                                        <span class="truncate">${p.safetyBadge}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
-        }
-
-        // --- 2. ACADEMIC ASSISTANT VIEW (EXPANDED DOCUMENTS HUB) ---
-        function renderAcademicView() {
-            const filteredDocs = selectedDocSubject === 'Tất cả' 
-                ? academicDocs 
-                : academicDocs.filter(d => d.subject.includes(selectedDocSubject));
-
-            return `
-                <div class="p-4 space-y-4 text-xs">
-                    <!-- Calculator Card -->
-                    <div class="bg-white p-4 rounded-2xl border border-emerald-100 shadow-sm space-y-3">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center space-x-2 text-emerald-600 font-bold">
-                                <i data-lucide="calculator" class="w-4 h-4"></i>
-                                <h3 class="text-xs text-slate-800">Tính Điểm Final Exam Cần Đạt</h3>
-                            </div>
-                            <span class="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md font-bold">Môn FPT / VKU</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2">
-                            <div>
-                                <label class="block text-[10px] text-slate-500 mb-1">Chuyên cần (10%)</label>
-                                <input type="number" id="scoreCc" value="10" max="10" class="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-xs">
-                            </div>
-                            <div>
-                                <label class="block text-[10px] text-slate-500 mb-1">Giữa kỳ Midterm (30%)</label>
-                                <input type="number" id="scoreMid" value="6.5" max="10" class="w-full px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-xs">
-                            </div>
-                        </div>
-                        <button onclick="calculateFinalScore()" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition shadow-md shadow-emerald-100 flex items-center justify-center space-x-1.5">
-                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                            <span>Tính Điểm Thi Cần Qua Môn</span>
-                        </button>
-                        <div id="calcResult" class="hidden p-3 bg-emerald-50/80 rounded-xl border border-emerald-200 text-emerald-900 font-medium leading-relaxed"></div>
-                    </div>
-
-                    <!-- EXPANDED DOCUMENTS HUB SECTION -->
-                    <div class="bg-white p-4 rounded-2xl border border-emerald-100 shadow-sm space-y-3">
-                        <div class="flex items-center justify-between">
-                            <h4 class="font-bold text-slate-800 text-xs flex items-center space-x-1.5">
-                                <i data-lucide="folder-git-2" class="w-4 h-4 text-emerald-600"></i>
-                                <span>Kho Tài Liệu & Review Môn Học Phong Phú</span>
-                            </h4>
-                            <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">${academicDocs.length} Tài liệu</span>
-                        </div>
-
-                        <!-- Filter Subjects -->
-                        <div class="flex items-center space-x-1.5 overflow-x-auto pb-1 no-scrollbar text-[11px]">
-                            ${['Tất cả', 'CSI106', 'MAE101', 'PRJ301', 'CEA201', 'SSG104'].map(sub => `
-                                <button onclick="setDocSubject('${sub}')" class="px-2.5 py-1 rounded-xl font-semibold whitespace-nowrap transition ${selectedDocSubject === sub ? 'bg-emerald-600 text-white shadow-sm' : 'bg-slate-50 border border-slate-200 text-slate-600'}">
-                                    ${sub}
-                                </button>
-                            `).join('')}
-                        </div>
-
-                        <!-- Document List -->
-                        <div class="space-y-2 pt-1">
-                            ${filteredDocs.map(doc => `
-                                <div class="p-3 bg-slate-50/80 hover:bg-emerald-50/50 rounded-xl border border-slate-100 transition space-y-2">
-                                    <div class="flex items-start justify-between">
-                                        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold text-[9px]">${doc.subject}</span>
-                                        <span class="text-[10px] font-medium text-slate-400">${doc.size}</span>
-                                    </div>
-                                    <div>
-                                        <h5 class="font-bold text-slate-800 text-[11px] leading-snug">${doc.title}</h5>
-                                        <p class="text-[10px] text-slate-500 mt-0.5">Phân loại: <span class="font-semibold text-emerald-700">${doc.type}</span> • Tác giả: ${doc.author}</p>
-                                    </div>
-                                    <div class="flex items-center justify-end space-x-2 pt-1 border-t border-slate-200/60">
-                                        <button onclick="showToast('Đang mở xem trước tài liệu...')" class="px-2.5 py-1 bg-white border border-slate-200 text-slate-700 rounded-lg text-[10px] font-bold hover:bg-slate-100">Xem trước</button>
-                                        <button onclick="downloadDoc('${doc.title}')" class="px-3 py-1 bg-emerald-600 text-white rounded-lg text-[10px] font-bold hover:bg-emerald-700 shadow-sm flex items-center space-x-1">
-                                            <i data-lucide="download" class="w-3 h-3"></i>
-                                            <span>Tải về</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // --- 3. CUSTOM SMART BUDGETING VIEW (FREELY CUSTOMIZABLE) ---
-        function renderFinanceView() {
-            const totalSpent = expenses.reduce((acc, curr) => acc + curr.amount, 0);
-            const remaining = monthlyBudget - totalSpent;
-            const percentSpent = monthlyBudget > 0 ? Math.min(100, Math.round((totalSpent / monthlyBudget) * 100)) : 0;
-
-            return `
-                <div class="p-4 space-y-4 text-xs">
-                    <!-- Customizable Budget Card -->
-                    <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white p-4 rounded-2xl shadow-md space-y-3">
-                        <div class="flex items-center justify-between">
-                            <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider">Cấu Hình Ngân Sách Sinh Viên</span>
-                            <button onclick="updateMonthlyBudgetPrompt()" class="px-2 py-1 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 rounded-lg text-[10px] font-semibold border border-emerald-500/30 flex items-center space-x-1">
-                                <i data-lucide="edit-3" class="w-3 h-3"></i>
-                                <span>Đặt Ngân Sách</span>
-                            </button>
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-2 border-y border-slate-700/80 py-2.5">
-                            <div>
-                                <p class="text-[10px] text-slate-400">Tổng ngân sách tháng:</p>
-                                <h4 class="text-sm font-extrabold text-white">${monthlyBudget.toLocaleString()} VNĐ</h4>
-                            </div>
-                            <div>
-                                <p class="text-[10px] text-slate-400">Còn lại có thể chi:</p>
-                                <h4 class="text-sm font-extrabold ${remaining < 0 ? 'text-rose-400' : 'text-emerald-400'}">${remaining.toLocaleString()} VNĐ</h4>
-                            </div>
-                        </div>
-
-                        <!-- Progress Bar -->
-                        <div class="space-y-1">
-                            <div class="flex justify-between text-[10px] text-slate-300">
-                                <span>Đã tiêu: ${totalSpent.toLocaleString()} VNĐ</span>
-                                <span>${percentSpent}%</span>
-                            </div>
-                            <div class="w-full bg-slate-700 h-2.5 rounded-full overflow-hidden">
-                                <div class="h-full transition-all duration-500 ${percentSpent > 85 ? 'bg-rose-500' : 'bg-emerald-400'}" style="width: ${percentSpent}%"></div>
-                            </div>
-                        </div>
-
-                        <p class="text-[10px] text-slate-300 italic">
-                            ${remaining < 0 ? '🚨 CẢNH BÁO: Bạn đã vượt quá ngân sách đặt ra!' : percentSpent > 75 ? '⚠️ Sắp chạm ngưỡng hạn mức! Hãy thắt chặt chi tiêu nhé.' : '✅ Tài chính an toàn. Chuẩn bị tiết kiệm được dư dả!'}
-                        </p>
-                    </div>
-
-                    <!-- Custom Expense Itemization -->
-                    <div class="bg-white p-4 rounded-2xl border border-emerald-100 shadow-sm space-y-3">
-                        <div class="flex items-center justify-between">
-                            <h4 class="font-bold text-slate-800 text-xs flex items-center space-x-1.5">
-                                <i data-lucide="pie-chart" class="w-4 h-4 text-emerald-600"></i>
-                                <span>Danh Sách Khoản Chi Theo Mục</span>
-                            </h4>
-                            <button onclick="openExpenseModal()" class="px-2.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-[10px] shadow-sm flex items-center space-x-1">
-                                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
-                                <span>Thêm Mục Chi</span>
-                            </button>
-                        </div>
-
-                        <!-- Expense Items List -->
-                        <div class="space-y-2 pt-1">
-                            ${expenses.length === 0 ? `
-                                <p class="text-center text-slate-400 text-[11px] py-4">Chưa có khoản chi nào. Nhấn "Thêm Mục Chi" để cài đặt!</p>
-                            ` : expenses.map(exp => `
-                                <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between">
-                                    <div class="space-y-0.5">
-                                        <div class="flex items-center space-x-1.5">
-                                            <span class="font-bold text-slate-800 text-[11px]">${exp.title}</span>
-                                            <span class="px-1.5 py-0.2 bg-emerald-100 text-emerald-800 rounded text-[9px] font-bold">${exp.category}</span>
-                                        </div>
-                                        <p class="text-[10px] font-extrabold text-emerald-700">${exp.amount.toLocaleString()} VNĐ</p>
-                                    </div>
-                                    <button onclick="deleteExpense('${exp.id}')" class="p-1.5 text-slate-400 hover:text-rose-600 transition" title="Xóa khoản chi">
-                                        <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-                                    </button>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-
-                    <!-- Săn Deal -->
-                    <div class="bg-white p-4 rounded-2xl border border-emerald-100 shadow-sm space-y-3">
-                        <h4 class="font-bold text-slate-800 text-xs flex items-center space-x-1">
-                            <i data-lucide="tag" class="w-3.5 h-3.5 text-emerald-600"></i>
-                            <span>Ưu Đãi & Deal Sinh Viên Giúp Tiết Kiệm</span>
-                        </h4>
-                        <div class="space-y-2">
-                            ${dealsList.map(d => `
-                                <div class="p-3 bg-emerald-50/40 rounded-xl border border-emerald-100/60 space-y-1">
-                                    <div class="flex items-center justify-between">
-                                        <span class="font-bold text-slate-800 text-[11px]">${d.title}</span>
-                                        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold text-[9px]">${d.category}</span>
-                                    </div>
-                                    <p class="text-[10px] text-slate-600 leading-relaxed">${d.desc}</p>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        // --- 4. COMMUNITY VIEW ---
-        function renderCommunityView() {
-            return `
-                <div class="p-4 space-y-4 text-xs">
-                    <div class="bg-white p-4 rounded-2xl border border-emerald-100 shadow-sm space-y-2">
-                        <div class="flex items-center space-x-2 text-emerald-600 font-bold">
-                            <i data-lucide="users" class="w-4 h-4"></i>
-                            <h3 class="text-sm text-slate-800">Tìm Bạn Học Nhóm & Ở Ghép</h3>
-                        </div>
-                        <p class="text-[11px] text-slate-500 leading-relaxed">Gắn kết sinh viên ĐH FPT & VKU Đà Nẵng cùng khu vực ở trọ Hòa Quý.</p>
-                        <button onclick="showToast('Đã mở tính năng ghép đôi học tập!')" class="w-full py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 font-bold rounded-xl transition text-[11px] border border-emerald-200/60">
-                            + Đăng Tin Tìm Bạn Học / Ở Ghép
-                        </button>
-                    </div>
-
-                    <div class="bg-gradient-to-r from-emerald-500 to-teal-600 text-white p-4 rounded-2xl shadow-md space-y-2.5">
-                        <div class="flex items-center justify-between">
-                            <span class="px-2 py-0.5 bg-white/20 backdrop-blur-sm rounded text-[10px] font-bold">Mental Health 💚</span>
-                            <i data-lucide="heart-pulse" class="w-4 h-4"></i>
-                        </div>
-                        <h4 class="font-bold text-xs">Góc Giải Tỏa Tâm Lý & Stress</h4>
-                        <p class="text-[10px] text-emerald-100 leading-relaxed">Cảm thấy áp lực với môi trường đại học mới? Làm bài trắc nghiệm ngắn để kiểm tra mức độ stress nhé.</p>
-                        <button onclick="showToast('Đang tải bài test tâm lý DASS-21...')" class="px-3 py-1.5 bg-white text-emerald-800 font-bold rounded-xl text-[10px] shadow-sm hover:bg-emerald-50 transition">
-                            Làm bài test DASS-21 (2 phút)
-                        </button>
-                    </div>
-                </div>
-            `;
-        }
-
-        // --- 5. GLOSSARY VIEW ---
-        function renderGlossaryView() {
-            return `
-                <div class="p-4 space-y-3.5 text-xs">
-                    <div class="bg-white p-4 rounded-2xl border border-emerald-100 shadow-sm space-y-1">
-                        <h3 class="font-extrabold text-slate-800 text-sm">Sổ Tay Thuật Ngữ Đại Học 📖</h3>
-                        <p class="text-slate-500 text-[11px]">Giải mã toàn bộ các khái niệm lạ lẫm dành riêng cho tân sinh viên.</p>
-                    </div>
-
-                    <div class="space-y-2.5">
-                        ${glossaryList.map(g => `
-                            <div class="bg-white p-3.5 rounded-2xl border border-emerald-100 shadow-sm space-y-1 hover:border-emerald-300 transition">
-                                <div class="flex items-center justify-between">
-                                    <h4 class="font-bold text-emerald-800 text-xs">${g.term}</h4>
-                                    <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 rounded text-[9px] font-bold border border-emerald-200/50">${g.tag}</span>
-                                </div>
-                                <p class="text-[11px] text-slate-600 leading-relaxed">${g.desc}</p>
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
-        }
-
-        // --- FINANCE LOGIC & HANDLERS ---
-        function updateMonthlyBudgetPrompt() {
-            const input = prompt("Nhập tổng ngân sách chi tiêu tháng mới (VNĐ):", monthlyBudget);
-            if (input !== null && !isNaN(input) && parseFloat(input) >= 0) {
-                monthlyBudget = parseFloat(input);
-                saveFinanceData();
-                renderTabContent();
-                showToast("Cập nhật tổng ngân sách thành công!");
-            }
-        }
-
-        function openExpenseModal() {
-            document.getElementById('expenseModal').classList.remove('hidden');
-        }
-
-        function closeExpenseModal() {
-            document.getElementById('expenseModal').classList.add('hidden');
-        }
-
-        function handleAddExpense(e) {
-            e.preventDefault();
-            const title = document.getElementById('expenseTitle').value;
-            const amount = parseFloat(document.getElementById('expenseAmount').value) || 0;
-            const category = document.getElementById('expenseCategory').value;
-
-            const newExp = {
-                id: 'exp_' + Date.now(),
-                title: title,
-                amount: amount,
-                category: category
-            };
-
-            expenses.unshift(newExp);
-            saveFinanceData();
-            closeExpenseModal();
-            renderTabContent();
-            showToast("Đã thêm mục chi tiêu thành công!");
-        }
-
-        function deleteExpense(id) {
-            expenses = expenses.filter(e => e.id !== id);
-            saveFinanceData();
-            renderTabContent();
-            showToast("Đã xóa khoản chi!");
-        }
-
-        function setDocSubject(sub) {
-            selectedDocSubject = sub;
-            renderTabContent();
-        }
-
-        function downloadDoc(title) {
-            showToast(`Đang tải tài liệu: ${title}`);
-        }
-
-        function calculateFinalScore() {
-            const cc = parseFloat(document.getElementById('scoreCc').value) || 0;
-            const mid = parseFloat(document.getElementById('scoreMid').value) || 0;
-            const currentTotal = (cc * 0.1) + (mid * 0.3);
-
-            const neededFor4 = Math.max(4.0, ((4.0 - currentTotal) / 0.6)).toFixed(1);
-            const neededFor7 = Math.max(4.0, ((7.0 - currentTotal) / 0.6)).toFixed(1);
-
-            const resultDiv = document.getElementById('calcResult');
-            resultDiv.classList.remove('hidden');
-            resultDiv.innerHTML = `
-                <p class="font-bold text-xs text-emerald-950 mb-1">🎯 Chiến lược điểm thi Final (Trọng số 60%):</p>
-                <ul class="list-disc list-inside space-y-1 text-[11px]">
-                    <li>Để <strong>Qua môn (Điểm D)</strong>: Cần đạt tối thiểu <strong>${neededFor4}</strong> điểm Final.</li>
-                    <li>Để đạt <strong>Điểm Khá/Giỏi (Điểm B/A)</strong>: Cần đạt khoảng <strong>${neededFor7}</strong> điểm Final.</li>
-                </ul>
-            `;
-        }
-
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            document.getElementById('toastMessage').innerText = message;
-            toast.classList.remove('-translate-y-20', 'opacity-0');
-            setTimeout(() => {
-                toast.classList.add('-translate-y-20', 'opacity-0');
-            }, 2500);
-        }
-
-        function openDetailModal(id) {
-            const p = places.find(item => item.id === id);
-            if (!p) return;
-            selectedPlaceIdForDetail = id;
-
-            document.getElementById('detailModalHeader').style.backgroundImage = `url('${p.image}')`;
-            document.getElementById('detailCategoryBadge').innerText = p.category;
-            document.getElementById('detailName').innerText = p.name;
-            document.getElementById('detailAddress').innerText = p.address;
-            document.getElementById('detailPriceBadge').innerText = p.priceRange;
-            document.getElementById('detailUniversity').innerText = p.university;
-            document.getElementById('detailTrustLevel').innerText = p.trustRating;
-            document.getElementById('detailReview').innerText = p.review;
-
-            const googleMapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name + ' ' + p.address)}`;
-            document.getElementById('detailGoogleMapLink').href = googleMapUrl;
-
-            document.getElementById('detailModal').classList.remove('hidden');
-        }
-
-        function closeDetailModal() {
-            document.getElementById('detailModal').classList.add('hidden');
-        }
-
-        function toggleSaveFromDetail() {
-            showToast('Đã lưu địa điểm cá nhân!');
-        }
-    </script>
-</body>
-
-</html>
+        const fptRoadmaps = {
+            SE: {
+                name: 'Kỹ Thuật Phần Mềm (Software Engineering)',
+                code: 'SE',
+                badgeColor: 'bg-emerald-600',
+                description: 'Lộ trình từ lập trình C căn bản đến Kiến trúc phần
